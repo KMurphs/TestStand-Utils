@@ -1,0 +1,358 @@
+Dependency Tree Report
+Note: 
+	- This report recursively builds up the tree of dependencies of the selected Sequence File. 
+	- Each '[SEQ]' entry represent a Sequence Call and is followed by the dependencies of the target Sequence
+	- A '[VI]' entry represent a call to a LabVIEW VI
+	- A '[DLL]' entry represent a call to a DLL (C, C++, CVI)
+	- A '[NET]' entry represent a call to a .NET Assembly
+	- A '[AUT]' entry represent a call to an ActiveX Resource
+	- The Number at the beginning of each line indicates the level of recursion with respect to the selected Sequence File
+	- Finally, also note that the script relies on the Search Directories to find dependencies. 
+	- If the project being explored has a worskpace file, it must be opened before running the script to add the Worspace File Directory to the Search Directories
+	- Be on the Look out for entries that end with   'Module Not Found in Current TestStand Search Directories List'  
+
+
+
+  -  [0][SEQ][Root]	S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\Sentinel4Main.seq	[MainSequence]
+  -  [1][EXE]	[Open Report: Text        ]		C:\WINDOWS\system32\cmd.exe
+  -  [1][VI]	[xCopy                    ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Labview Project\lib_vi\File Copy4\subVIs\Copy Sentinel4Main.vi
+  -  [1][SEQ]	[SetupJig                 ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\TestJigSetup.seq	[MainSequence]
+  -  [2][VI]		[CheckDevices             ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\DAQ Self Test.vi
+  -  [2][VI]		[GetConfigLSb             ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Digital IO Control.vi
+  -  [2][VI]		[GetConfigMSb             ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Digital IO Control.vi
+  -  [2][VI]		[GetConfigMSb             ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Digital IO Control.vi
+  -  [2][VI]		[ClearAllAnaologOutputs   ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Analog Output Control.vi
+  -  [2][VI]		[ClearAllAnaologOutputs   ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Analog Output Control.vi
+  -  [1][SEQ]	[InitDigitalOutputs       ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\Sentinel4Main.seq	[InitOutputs]
+  -  [2][VI]		[Remove Battery Load      ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Digital IO Control.vi
+  -  [1][VI]	[CheckTPLever             ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Digital IO Control.vi
+  -  [1][VI]	[CheckTPLever             ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Digital IO Control.vi
+  -  [1][SEQ]	[SetupAndPowerSequence    ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\GDIpowersequence.seq	[MainSequence]
+  -  [2][VI]		[xCopy                    ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Labview Project\lib_vi\File Copy4\subVIs\Copy GDIpowersequence.vi
+  -  [2][VI]		[Remove4R7                ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Digital IO Control.vi
+  -  [2][VI]		[CheckPreSwitcherShort    ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\Voltage Measure Loop.vi
+  -  [2][VI]		[Check5V0Short            ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\Voltage Measure Loop.vi
+  -  [2][VI]		[Check3V3Short            ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\Voltage Measure Loop.vi
+  -  [2][VI]		[MainFuseTestActivate     ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Analog Output Control.vi
+  -  [2][VI]		[CheckFuseF1              ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\Voltage Measure Loop.vi
+  -  [2][VI]		[EndMainFuseTest          ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Analog Output Control.vi
+  -  [2][SEQ]		[ChargerInputTest         ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\GDIpowersequence.seq	[ChargerInputSequence]
+  -  [3][VI]			[ActivateCHARGE-          ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Analog Output Control.vi
+  -  [3][VI]			[CheckD15                 ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\Voltage Measure Loop.vi
+  -  [3][VI]			[DeactivateCHARGE-        ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Analog Output Control.vi
+  -  [3][VI]			[ActivateCHARGE+          ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Analog Output Control.vi
+  -  [3][VI]			[CheckD14                 ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\Voltage Measure Loop.vi
+  -  [3][VI]			[DeactivateCHARGE+        ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Analog Output Control.vi
+  -  [2][VI]		[Get zero current reading ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\Voltage Measure Loop.vi
+  -  [2][VI]		[Apply Battery Voltage    ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Analog Output Control.vi
+  -  [2][VI]		[Check high current       ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\Voltage Measure Loop.vi
+  -  [2][VI]		[Apply Battery Voltage    ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Analog Output Control.vi
+  -  [2][VI]		[Check Switchers Initial  ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\Voltage Measure Loop.vi
+  -  [2][VI]		[Apply Charger Voltage    ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Analog Output Control.vi
+  -  [2][VI]		[Check high current       ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\Voltage Measure Loop.vi
+  -  [2][VI]		[Check high current       ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\Voltage Measure Loop.vi
+  -  [2][VI]		[Check Switcher D+3V3_S1 R]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\Voltage Measure Loop.vi
+  -  [2][VI]		[Check Switcher D+3V3_S3 R]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\Voltage Measure Loop.vi
+  -  [2][VI]		[Check Switcher D+3V3_S4 R]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\Voltage Measure Loop.vi
+  -  [2][VI]		[CurrentCheck             ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\Voltage Measure Loop.vi
+  -  [2][VI]		[Remove Charger Voltage   ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Analog Output Control.vi
+  -  [2][VI]		[EndMainFuseTest          ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Digital IO Control.vi
+  -  [2][VI]		[Remove Battery Voltage   ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Analog Output Control.vi
+  -  [1][SEQ]	[PostPowerTestInit        ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\Sentinel4Main.seq	[PostPowerTestStart]
+  -  [2][VI]		[Remove CHARGE+ Voltage   ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Analog Output Control.vi
+  -  [2][VI]		[Apply CHARGE- Voltage    ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Analog Output Control.vi
+  -  [2][VI]		[Apply Battery Voltage    ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Analog Output Control.vi
+  -  [1][SEQ]	[Call UUTTestProgramming  ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\Sentinel4Main.seq	[UUTTestProgramming]
+  -  [2][EXE]		[Chip Erase               ]		C:\Program Files\Atmel\Studio\7.0\atbackend\atprogram.exe (Module Not Found in Current TestStand Search Directories List)
+  -  [2][EXE]		[Chip Program Test Code   ]		C:\Program Files\Atmel\Studio\7.0\atbackend\atprogram.exe (Module Not Found in Current TestStand Search Directories List)
+  -  [2][EXE]		[Chip Erase               ]		 (Module Not Found in Current TestStand Search Directories List)
+  -  [2][EXE]		[Chip Program Test Code   ]		 (Module Not Found in Current TestStand Search Directories List)
+  -  [2][EXE]		[Chip Reset               ]		 (Module Not Found in Current TestStand Search Directories List)
+  -  [1][SEQ]	[Enable uC 3V3            ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+  -  [2][VI]		[PackageTxMsg             ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdPackager.vi
+  -  [2][VI]		[UartComms                ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\UartCommunication.vi
+  -  [2][VI]		[GetRxCRC                 ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Calculate CCITT CRC.vi
+  -  [2][VI]		[UnpackageRxMsg           ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdUnpackage.vi
+  -  [1][SEQ]	[Reset RTC                ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+  -  [2][VI]		[PackageTxMsg             ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdPackager.vi
+  -  [2][VI]		[UartComms                ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\UartCommunication.vi
+  -  [2][VI]		[GetRxCRC                 ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Calculate CCITT CRC.vi
+  -  [2][VI]		[UnpackageRxMsg           ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdUnpackage.vi
+  -  [1][SEQ]	[Write User Page          ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+  -  [2][VI]		[PackageTxMsg             ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdPackager.vi
+  -  [2][VI]		[UartComms                ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\UartCommunication.vi
+  -  [2][VI]		[GetRxCRC                 ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Calculate CCITT CRC.vi
+  -  [2][VI]		[UnpackageRxMsg           ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdUnpackage.vi
+  -  [1][SEQ]	[Test 5V Switcher         ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\Sentinel4Main.seq	[Test 5V Switcher]
+  -  [2][SEQ]		[Enable uC 5V0            ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+  -  [3][VI]			[PackageTxMsg             ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdPackager.vi
+  -  [3][VI]			[UartComms                ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\UartCommunication.vi
+  -  [3][VI]			[GetRxCRC                 ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Calculate CCITT CRC.vi
+  -  [3][VI]			[UnpackageRxMsg           ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdUnpackage.vi
+  -  [2][VI]		[Check Switcher D+5V0_S2 R]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\Voltage Measure Loop.vi
+  -  [1][SEQ]	[Test Backlight Control   ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\Sentinel4Main.seq	[Test Backlight Control]
+  -  [2][SEQ]		[Disable uC Backlight     ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+  -  [3][VI]			[PackageTxMsg             ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdPackager.vi
+  -  [3][VI]			[UartComms                ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\UartCommunication.vi
+  -  [3][VI]			[GetRxCRC                 ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Calculate CCITT CRC.vi
+  -  [3][VI]			[UnpackageRxMsg           ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdUnpackage.vi
+  -  [2][VI]		[Check LCD BL[0] OFF      ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Digital IO Control.vi
+  -  [2][VI]		[Check LCD BL[1] OFF      ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Digital IO Control.vi
+  -  [2][VI]		[Check LCD BL[2] OFF      ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Digital IO Control.vi
+  -  [2][VI]		[Check LCD BL[3] OFF      ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Digital IO Control.vi
+  -  [2][SEQ]		[Enable uC Backlight      ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+  -  [3][VI]			[PackageTxMsg             ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdPackager.vi
+  -  [3][VI]			[UartComms                ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\UartCommunication.vi
+  -  [3][VI]			[GetRxCRC                 ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Calculate CCITT CRC.vi
+  -  [3][VI]			[UnpackageRxMsg           ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdUnpackage.vi
+  -  [2][VI]		[Check LCD BL[0] ON       ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Digital IO Control.vi
+  -  [2][VI]		[Check LCD BL[1] ON       ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Digital IO Control.vi
+  -  [2][VI]		[Check LCD BL[2] ON       ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Digital IO Control.vi
+  -  [2][VI]		[Check LCD BL[3] ON       ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Digital IO Control.vi
+  -  [2][SEQ]		[Disable uC Backlight     ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+  -  [3][VI]			[PackageTxMsg             ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdPackager.vi
+  -  [3][VI]			[UartComms                ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\UartCommunication.vi
+  -  [3][VI]			[GetRxCRC                 ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Calculate CCITT CRC.vi
+  -  [3][VI]			[UnpackageRxMsg           ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdUnpackage.vi
+  -  [1][SEQ]	[Test Charger Control     ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\Sentinel4Main.seq	[Test Charger Control]
+  -  [2][SEQ]		[Disable uC Charger       ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+  -  [3][VI]			[PackageTxMsg             ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdPackager.vi
+  -  [3][VI]			[UartComms                ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\UartCommunication.vi
+  -  [3][VI]			[GetRxCRC                 ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Calculate CCITT CRC.vi
+  -  [3][VI]			[UnpackageRxMsg           ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdUnpackage.vi
+  -  [2][VI]		[Check nCE OFF            ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Digital IO Control.vi
+  -  [2][SEQ]		[Enable uC Charger        ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+  -  [3][VI]			[PackageTxMsg             ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdPackager.vi
+  -  [3][VI]			[UartComms                ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\UartCommunication.vi
+  -  [3][VI]			[GetRxCRC                 ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Calculate CCITT CRC.vi
+  -  [3][VI]			[UnpackageRxMsg           ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdUnpackage.vi
+  -  [2][VI]		[Check nCE ON             ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Digital IO Control.vi
+  -  [2][VI]		[Remove CHARGE+ Voltage   ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Analog Output Control.vi
+  -  [2][VI]		[Remove CHARGE- Voltage   ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Analog Output Control.vi
+  -  [2][VI]		[Check nPG HIGH           ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Digital IO Control.vi
+  -  [2][VI]		[Apply CHARGE+ Voltage    ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Analog Output Control.vi
+  -  [2][VI]		[Check nPG LOW            ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Digital IO Control.vi
+  -  [2][SEQ]		[Get uC Fuel Gauge Values ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+  -  [3][VI]			[PackageTxMsg             ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdPackager.vi
+  -  [3][VI]			[UartComms                ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\UartCommunication.vi
+  -  [3][VI]			[GetRxCRC                 ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Calculate CCITT CRC.vi
+  -  [3][VI]			[UnpackageRxMsg           ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdUnpackage.vi
+  -  [2][VI]		[Remove CHARGE+ Voltage   ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Analog Output Control.vi
+  -  [2][VI]		[Apply CHARGE- Voltage    ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Analog Output Control.vi
+  -  [2][VI]		[Check nPG LOW            ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Digital IO Control.vi
+  -  [2][SEQ]		[Enable uC Charger Trickle]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+  -  [3][VI]			[PackageTxMsg             ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdPackager.vi
+  -  [3][VI]			[UartComms                ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\UartCommunication.vi
+  -  [3][VI]			[GetRxCRC                 ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Calculate CCITT CRC.vi
+  -  [3][VI]			[UnpackageRxMsg           ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdUnpackage.vi
+  -  [2][VI]		[Check CM HIGH            ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Digital IO Control.vi
+  -  [2][SEQ]		[Enable uC Charger Boost M]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+  -  [3][VI]			[PackageTxMsg             ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdPackager.vi
+  -  [3][VI]			[UartComms                ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\UartCommunication.vi
+  -  [3][VI]			[GetRxCRC                 ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Calculate CCITT CRC.vi
+  -  [3][VI]			[UnpackageRxMsg           ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdUnpackage.vi
+  -  [2][VI]		[Check CM LOW             ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Digital IO Control.vi
+  -  [2][SEQ]		[Disable uC Charger       ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+  -  [3][VI]			[PackageTxMsg             ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdPackager.vi
+  -  [3][VI]			[UartComms                ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\UartCommunication.vi
+  -  [3][VI]			[GetRxCRC                 ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Calculate CCITT CRC.vi
+  -  [3][VI]			[UnpackageRxMsg           ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdUnpackage.vi
+  -  [1][SEQ]	[Read RTC                 ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+  -  [2][VI]		[PackageTxMsg             ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdPackager.vi
+  -  [2][VI]		[UartComms                ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\UartCommunication.vi
+  -  [2][VI]		[GetRxCRC                 ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Calculate CCITT CRC.vi
+  -  [2][VI]		[UnpackageRxMsg           ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdUnpackage.vi
+  -  [1][SEQ]	[Test LED Driver          ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\Sentinel4Main.seq	[Test LEDS]
+  -  [2][SEQ]		[Disable uC LEDS          ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+  -  [3][VI]			[PackageTxMsg             ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdPackager.vi
+  -  [3][VI]			[UartComms                ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\UartCommunication.vi
+  -  [3][VI]			[GetRxCRC                 ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Calculate CCITT CRC.vi
+  -  [3][VI]			[UnpackageRxMsg           ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdUnpackage.vi
+  -  [2][VI]		[Check RED LED Resistor Vo]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\Voltage Measure Loop.vi
+  -  [2][VI]		[Check GREEN LED Resistor ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\Voltage Measure Loop.vi
+  -  [2][VI]		[Check BLUE LED Resistor V]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\Voltage Measure Loop.vi
+  -  [2][SEQ]		[Get uC Fuel Gauge Values ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+  -  [3][VI]			[PackageTxMsg             ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdPackager.vi
+  -  [3][VI]			[UartComms                ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\UartCommunication.vi
+  -  [3][VI]			[GetRxCRC                 ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Calculate CCITT CRC.vi
+  -  [3][VI]			[UnpackageRxMsg           ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdUnpackage.vi
+  -  [2][SEQ]		[Enable uC D10 LEDS       ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+  -  [3][VI]			[PackageTxMsg             ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdPackager.vi
+  -  [3][VI]			[UartComms                ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\UartCommunication.vi
+  -  [3][VI]			[GetRxCRC                 ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Calculate CCITT CRC.vi
+  -  [3][VI]			[UnpackageRxMsg           ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdUnpackage.vi
+  -  [2][SEQ]		[Get uC Fuel Gauge Values ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+  -  [3][VI]			[PackageTxMsg             ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdPackager.vi
+  -  [3][VI]			[UartComms                ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\UartCommunication.vi
+  -  [3][VI]			[GetRxCRC                 ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Calculate CCITT CRC.vi
+  -  [3][VI]			[UnpackageRxMsg           ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdUnpackage.vi
+  -  [2][SEQ]		[Enable uC D11 LEDS       ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+  -  [3][VI]			[PackageTxMsg             ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdPackager.vi
+  -  [3][VI]			[UartComms                ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\UartCommunication.vi
+  -  [3][VI]			[GetRxCRC                 ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Calculate CCITT CRC.vi
+  -  [3][VI]			[UnpackageRxMsg           ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdUnpackage.vi
+  -  [2][SEQ]		[Get uC Fuel Gauge Values ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+  -  [3][VI]			[PackageTxMsg             ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdPackager.vi
+  -  [3][VI]			[UartComms                ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\UartCommunication.vi
+  -  [3][VI]			[GetRxCRC                 ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Calculate CCITT CRC.vi
+  -  [3][VI]			[UnpackageRxMsg           ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdUnpackage.vi
+  -  [2][SEQ]		[Enable uC D9 LEDS        ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+  -  [3][VI]			[PackageTxMsg             ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdPackager.vi
+  -  [3][VI]			[UartComms                ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\UartCommunication.vi
+  -  [3][VI]			[GetRxCRC                 ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Calculate CCITT CRC.vi
+  -  [3][VI]			[UnpackageRxMsg           ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdUnpackage.vi
+  -  [2][SEQ]		[Get uC Fuel Gauge Values ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+  -  [3][VI]			[PackageTxMsg             ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdPackager.vi
+  -  [3][VI]			[UartComms                ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\UartCommunication.vi
+  -  [3][VI]			[GetRxCRC                 ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Calculate CCITT CRC.vi
+  -  [3][VI]			[UnpackageRxMsg           ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdUnpackage.vi
+  -  [2][SEQ]		[Enable uC D8 LEDS        ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+  -  [3][VI]			[PackageTxMsg             ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdPackager.vi
+  -  [3][VI]			[UartComms                ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\UartCommunication.vi
+  -  [3][VI]			[GetRxCRC                 ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Calculate CCITT CRC.vi
+  -  [3][VI]			[UnpackageRxMsg           ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdUnpackage.vi
+  -  [2][SEQ]		[Get uC Fuel Gauge Values ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+  -  [3][VI]			[PackageTxMsg             ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdPackager.vi
+  -  [3][VI]			[UartComms                ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\UartCommunication.vi
+  -  [3][VI]			[GetRxCRC                 ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Calculate CCITT CRC.vi
+  -  [3][VI]			[UnpackageRxMsg           ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdUnpackage.vi
+  -  [2][SEQ]		[Enable uC Rear LEDS      ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+  -  [3][VI]			[PackageTxMsg             ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdPackager.vi
+  -  [3][VI]			[UartComms                ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\UartCommunication.vi
+  -  [3][VI]			[GetRxCRC                 ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Calculate CCITT CRC.vi
+  -  [3][VI]			[UnpackageRxMsg           ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdUnpackage.vi
+  -  [2][VI]		[Check RED LED Resistor Vo]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\Voltage Measure Loop.vi
+  -  [2][VI]		[Check GREEN LED Resistor ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\Voltage Measure Loop.vi
+  -  [2][VI]		[Check BLUE LED Resistor V]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\Voltage Measure Loop.vi
+  -  [2][SEQ]		[Get uC Fuel Gauge Values ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+  -  [3][VI]			[PackageTxMsg             ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdPackager.vi
+  -  [3][VI]			[UartComms                ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\UartCommunication.vi
+  -  [3][VI]			[GetRxCRC                 ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Calculate CCITT CRC.vi
+  -  [3][VI]			[UnpackageRxMsg           ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdUnpackage.vi
+  -  [2][SEQ]		[Disable uC LEDS          ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+  -  [3][VI]			[PackageTxMsg             ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdPackager.vi
+  -  [3][VI]			[UartComms                ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\UartCommunication.vi
+  -  [3][VI]			[GetRxCRC                 ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Calculate CCITT CRC.vi
+  -  [3][VI]			[UnpackageRxMsg           ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdUnpackage.vi
+  -  [1][SEQ]	[Test Sensors             ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\Sentinel4Main.seq	[Test Sensors]
+  -  [2][SEQ]		[Request uC Init Daq      ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+  -  [3][VI]			[PackageTxMsg             ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdPackager.vi
+  -  [3][VI]			[UartComms                ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\UartCommunication.vi
+  -  [3][VI]			[GetRxCRC                 ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Calculate CCITT CRC.vi
+  -  [3][VI]			[UnpackageRxMsg           ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdUnpackage.vi
+  -  [2][VI]		[Remove CH4 Load          ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Digital IO Control.vi
+  -  [2][VI]		[Apply CH4 Load           ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Digital IO Control.vi
+  -  [2][VI]		[Check CH4 SENS           ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\Voltage Measure Loop.vi
+  -  [2][SEQ]		[Request uC Chan 1        ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+  -  [3][VI]			[PackageTxMsg             ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdPackager.vi
+  -  [3][VI]			[UartComms                ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\UartCommunication.vi
+  -  [3][VI]			[GetRxCRC                 ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Calculate CCITT CRC.vi
+  -  [3][VI]			[UnpackageRxMsg           ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdUnpackage.vi
+  -  [2][VI]		[Apply CH4 Load           ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Digital IO Control.vi
+  -  [2][SEQ]		[Request uC Chan 2        ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+  -  [3][VI]			[PackageTxMsg             ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdPackager.vi
+  -  [3][VI]			[UartComms                ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\UartCommunication.vi
+  -  [3][VI]			[GetRxCRC                 ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Calculate CCITT CRC.vi
+  -  [3][VI]			[UnpackageRxMsg           ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdUnpackage.vi
+  -  [2][SEQ]		[Request uC Chan 1        ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+  -  [3][VI]			[PackageTxMsg             ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdPackager.vi
+  -  [3][VI]			[UartComms                ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\UartCommunication.vi
+  -  [3][VI]			[GetRxCRC                 ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Calculate CCITT CRC.vi
+  -  [3][VI]			[UnpackageRxMsg           ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdUnpackage.vi
+  -  [2][VI]		[Check CH4 SENS           ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\Voltage Measure Loop.vi
+  -  [2][VI]		[Remove CO Load           ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Digital IO Control.vi
+  -  [2][VI]		[Remove H2S Load          ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Digital IO Control.vi
+  -  [2][VI]		[Remove Oxygen Load       ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Digital IO Control.vi
+  -  [2][SEQ]		[Request uC Chan 0        ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+  -  [3][VI]			[PackageTxMsg             ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdPackager.vi
+  -  [3][VI]			[UartComms                ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\UartCommunication.vi
+  -  [3][VI]			[GetRxCRC                 ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Calculate CCITT CRC.vi
+  -  [3][VI]			[UnpackageRxMsg           ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdUnpackage.vi
+  -  [2][SEQ]		[Request uC Chan 3        ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+  -  [3][VI]			[PackageTxMsg             ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdPackager.vi
+  -  [3][VI]			[UartComms                ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\UartCommunication.vi
+  -  [3][VI]			[GetRxCRC                 ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Calculate CCITT CRC.vi
+  -  [3][VI]			[UnpackageRxMsg           ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdUnpackage.vi
+  -  [2][SEQ]		[Request uC Chan 4        ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+  -  [3][VI]			[PackageTxMsg             ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdPackager.vi
+  -  [3][VI]			[UartComms                ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\UartCommunication.vi
+  -  [3][VI]			[GetRxCRC                 ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Calculate CCITT CRC.vi
+  -  [3][VI]			[UnpackageRxMsg           ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdUnpackage.vi
+  -  [2][SEQ]		[Request uC Chan 5        ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+  -  [3][VI]			[PackageTxMsg             ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdPackager.vi
+  -  [3][VI]			[UartComms                ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\UartCommunication.vi
+  -  [3][VI]			[GetRxCRC                 ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Calculate CCITT CRC.vi
+  -  [3][VI]			[UnpackageRxMsg           ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdUnpackage.vi
+  -  [2][VI]		[Apply CO Load            ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Digital IO Control.vi
+  -  [2][VI]		[Apply H2S Load           ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Digital IO Control.vi
+  -  [2][VI]		[Apply O2 Load            ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Digital IO Control.vi
+  -  [2][SEQ]		[Request uC Chan 4        ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+  -  [3][VI]			[PackageTxMsg             ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdPackager.vi
+  -  [3][VI]			[UartComms                ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\UartCommunication.vi
+  -  [3][VI]			[GetRxCRC                 ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Calculate CCITT CRC.vi
+  -  [3][VI]			[UnpackageRxMsg           ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdUnpackage.vi
+  -  [2][SEQ]		[Request uC Chan 5        ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+  -  [3][VI]			[PackageTxMsg             ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdPackager.vi
+  -  [3][VI]			[UartComms                ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\UartCommunication.vi
+  -  [3][VI]			[GetRxCRC                 ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Calculate CCITT CRC.vi
+  -  [3][VI]			[UnpackageRxMsg           ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdUnpackage.vi
+  -  [2][SEQ]		[Request uC Chan 6        ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+  -  [3][VI]			[PackageTxMsg             ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdPackager.vi
+  -  [3][VI]			[UartComms                ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\UartCommunication.vi
+  -  [3][VI]			[GetRxCRC                 ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Calculate CCITT CRC.vi
+  -  [3][VI]			[UnpackageRxMsg           ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdUnpackage.vi
+  -  [2][SEQ]		[Request uC Chan 3        ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+  -  [3][VI]			[PackageTxMsg             ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdPackager.vi
+  -  [3][VI]			[UartComms                ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\UartCommunication.vi
+  -  [3][VI]			[GetRxCRC                 ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Calculate CCITT CRC.vi
+  -  [3][VI]			[UnpackageRxMsg           ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdUnpackage.vi
+  -  [2][SEQ]		[Request uC Chan 4        ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+  -  [3][VI]			[PackageTxMsg             ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdPackager.vi
+  -  [3][VI]			[UartComms                ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\UartCommunication.vi
+  -  [3][VI]			[GetRxCRC                 ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Calculate CCITT CRC.vi
+  -  [3][VI]			[UnpackageRxMsg           ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdUnpackage.vi
+  -  [2][SEQ]		[Request uC Chan 5        ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+  -  [3][VI]			[PackageTxMsg             ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdPackager.vi
+  -  [3][VI]			[UartComms                ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\UartCommunication.vi
+  -  [3][VI]			[GetRxCRC                 ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Calculate CCITT CRC.vi
+  -  [3][VI]			[UnpackageRxMsg           ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdUnpackage.vi
+  -  [1][SEQ]	[Test Flash Devices       ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\Sentinel4Main.seq	[Test Flash]
+  -  [2][SEQ]		[Request uC Flash 0 ID    ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+  -  [3][VI]			[PackageTxMsg             ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdPackager.vi
+  -  [3][VI]			[UartComms                ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\UartCommunication.vi
+  -  [3][VI]			[GetRxCRC                 ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Calculate CCITT CRC.vi
+  -  [3][VI]			[UnpackageRxMsg           ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdUnpackage.vi
+  -  [2][SEQ]		[Request uC Flash 1 ID    ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+  -  [3][VI]			[PackageTxMsg             ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdPackager.vi
+  -  [3][VI]			[UartComms                ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\UartCommunication.vi
+  -  [3][VI]			[GetRxCRC                 ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Calculate CCITT CRC.vi
+  -  [3][VI]			[UnpackageRxMsg           ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdUnpackage.vi
+  -  [1][SEQ]	[Test RFID Devices        ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\Sentinel4Main.seq	[Test RFID]
+  -  [2][SEQ]		[Request uC Write RFID RAM]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+  -  [3][VI]			[PackageTxMsg             ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdPackager.vi
+  -  [3][VI]			[UartComms                ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\UartCommunication.vi
+  -  [3][VI]			[GetRxCRC                 ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Calculate CCITT CRC.vi
+  -  [3][VI]			[UnpackageRxMsg           ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdUnpackage.vi
+  -  [2][SEQ]		[Request uC Write RFID RAM]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+  -  [3][VI]			[PackageTxMsg             ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdPackager.vi
+  -  [3][VI]			[UartComms                ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\UartCommunication.vi
+  -  [3][VI]			[GetRxCRC                 ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Calculate CCITT CRC.vi
+  -  [3][VI]			[UnpackageRxMsg           ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdUnpackage.vi
+  -  [1][SEQ]	[Read User Page           ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+  -  [2][VI]		[PackageTxMsg             ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdPackager.vi
+  -  [2][VI]		[UartComms                ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\UartCommunication.vi
+  -  [2][VI]		[GetRxCRC                 ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Calculate CCITT CRC.vi
+  -  [2][VI]		[UnpackageRxMsg           ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdUnpackage.vi
+  -  [1][SEQ]	[ClearDigitals            ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\Sentinel4Main.seq	[InitOutputs]
+  -  [2][VI]		[Remove Battery Load      ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Digital IO Control.vi
+  -  [1][VI]	[Remove Battery Voltage   ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Analog Output Control.vi
+  -  [1][EXE]	[Chip Erase               ]		C:\Program Files\Atmel\AVR Tools\AVR32 Studio\plugins\com.atmel.avr.utilities.win32.x86_3.0.0.201009140848\os\win32\x86\bin\avr32program (Module Not Found in Current TestStand Search Directories List)
+  -  [1][EXE]	[Chip Program Bootloader  ]		C:\Program Files\Atmel\AVR Tools\AVR32 Studio\plugins\com.atmel.avr.utilities.win32.x86_3.0.0.201009140848\os\win32\x86\bin\avr32program (Module Not Found in Current TestStand Search Directories List)
+  -  [1][EXE]	[Chip Program Main Applica]		C:\Program Files\Atmel\AVR Tools\AVR32 Studio\plugins\com.atmel.avr.utilities.win32.x86_3.0.0.201009140848\os\win32\x86\bin\avr32program (Module Not Found in Current TestStand Search Directories List)
+  -  [1][EXE]	[Chip Reset               ]		C:\Program Files\Atmel\AVR Tools\AVR32 Studio\plugins\com.atmel.avr.utilities.win32.x86_3.0.0.201009140848\os\win32\x86\bin\avr32program (Module Not Found in Current TestStand Search Directories List)
+  -  [1][EXE]	[Chip Erase               ]		C:\Program Files\Atmel\Studio\7.0\atbackend\atprogram.exe (Module Not Found in Current TestStand Search Directories List)
+  -  [1][EXE]	[Chip Program Bootloader  ]		C:\Program Files\Atmel\Studio\7.0\atbackend\atprogram.exe (Module Not Found in Current TestStand Search Directories List)
+  -  [1][EXE]	[Chip Program Main Applica]		C:\Program Files\Atmel\Studio\7.0\atbackend\atprogram.exe (Module Not Found in Current TestStand Search Directories List)
+  -  [1][SEQ]	[ClearDigitals            ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\Sentinel4Main.seq	[InitOutputs]
+  -  [2][VI]		[Remove Battery Load      ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Digital IO Control.vi
+  -  [1][VI]	[Remove Battery Voltage   ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Analog Output Control.vi

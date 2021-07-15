@@ -1,0 +1,25 @@
+Dependency Tree Report
+Note: 
+	- This report recursively builds up the tree of dependencies of the selected Sequence File. 
+	- Each '[SEQ]' entry represent a Sequence Call and is followed by the dependencies of the target Sequence
+	- A '[VI]' entry represent a call to a LabVIEW VI
+	- A '[DLL]' entry represent a call to a DLL (C, C++, CVI)
+	- A '[NET]' entry represent a call to a .NET Assembly
+	- A '[AUT]' entry represent a call to an ActiveX Resource
+	- The Number at the beginning of each line indicates the level of recursion with respect to the selected Sequence File
+	- Finally, also note that the script relies on the Search Directories to find dependencies. 
+	- If the project being explored has a worskpace file, it must be opened before running the script to add the Worspace File Directory to the Search Directories
+	- Be on the Look out for entries that end with   'Module Not Found in Current TestStand Search Directories List'  
+
+
+
+C:\Etion Projects\HTSTE2\SEPTS_EFA\SEPTS\sw\teststand\SEPTS EFA.seq
+  -  [1][DLL]	[DLL Versions             ]		..\..\..\HTSTEGC\sw\HTSSDLLs\distribute\HTSSTestDLL.dll (Module Not Found in Current TestStand Search Directories List)
+  -  [1][DLL]	[HTD Config File Versions ]		HTSSTestDLL.dll (Module Not Found in Current TestStand Search Directories List)
+  -  [1][SEQ]	[Call Station Setup       ]		SEPTS Main Setup.seq (Module Not Found in Current TestStand Search Directories List)
+  -  [1][VI]	[Get user group           ]		..\..\..\HTSTEGC\sw\lib_vi\Get User Group.vi (Module Not Found in Current TestStand Search Directories List)
+  -  [1][SEQ]	[Call UUT                 ]		PSPTS EFA.seq (Module Not Found in Current TestStand Search Directories List)
+  -  [1][SEQ]	[Call BIT                 ]		PSPTS EFA.seq (Module Not Found in Current TestStand Search Directories List)
+  -  [1][SEQ]	[Call CM                  ]		PSPTS EFA.seq (Module Not Found in Current TestStand Search Directories List)
+  -  [1][SEQ]	[Call User Manager        ]		HSPTS EFA.seq (Module Not Found in Current TestStand Search Directories List)
+  -  [1][SEQ]	[Call Station Cleanup     ]		SEPTS Main Cleanup.seq (Module Not Found in Current TestStand Search Directories List)

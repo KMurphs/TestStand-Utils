@@ -1,0 +1,427 @@
+Sequence File Documentation Created On:
+---------------------------------------
+Date:                              Friday, 05 February 2021
+Time:                              16:44:56
+By Operator:                       administrator
+---------------------------------------
+Path:                              "C:\PersonalProjects\misc\TestStand\UpdateSearchDirectories\UpdateSearchDirectories.seq"
+Version:                           0.0.0.0
+Type:                              Normal
+Module Load Option:                Use step load option
+Module Unload Option:              Use step unload option
+Model Option:                      Use Station Model
+Number of sequences:               4
+Total number of steps:             29
+
+Sequence: "MainSequence"
+---------------------------------------
+Type:                              Normal
+Disable Results for All Steps:     True
+Goto Cleanup on failure:           Use Station Option
+Number of Setup steps:             1
+Number of Main steps:              5
+Number of Cleanup steps:           0
+
+     Parameters:
+     ---------------------------------------
+     doEnable (Boolean)                       True
+
+     Locals:
+     ---------------------------------------
+     ResultList (Array of Result[0..empty])   ...
+     path (String)                                      
+          ""
+     SearchDirectoryItem (Container)          ...
+     SearchDirectoryItems (Array of Strings[0..2] - by reference) ...
+     isValidPath (Boolean)                    False
+
+     Setup
+     ---------------------------------------
+     Step: "Get Project Search Directories From File"
+          StepType, Adapter:                 Sequence Call, Sequence
+          Description:
+               Call ReadFile( , Locals.SearchDirectoryItems) in <Current File>
+          Module Load Option:                Preload when execution begins
+          Module Unload Option:              Unload when sequence file is closed
+          Flow Properties:                   
+               Sequence Call Tracing: Disable
+
+     Main
+     ---------------------------------------
+     Step: "For Each"
+          StepType, Adapter:                 NI_Flow_ForEach, <None>
+          Description:
+               Locals.path  in Locals.SearchDirectoryItems
+          Module Load Option:                Load dynamically
+          Module Unload Option:              Unload when sequence file is closed
+
+          Step: "is Path Valid"
+               StepType, Adapter:                 Action, ActiveX/COM
+               Description:
+                    Action,  Create FileSystemObject; !Step.Result.Error.Occurred =
+                    Call IFileSystem3.FolderExists (Locals.path )
+               Module Load Option:                Preload when execution begins
+               Module Unload Option:              Unload when sequence file is closed
+               Flow Properties:                   
+                    Post Action:
+                       if ((!Step.Result.Error.Occurred) == False)
+                          Goto End
+
+          Step: "Prepare Search Directory Item"
+               StepType, Adapter:                 Statement, <None>
+               Description:
+                    // Main fields
+                    Locals.SearchDirectoryItem.Disabled = !Parameters.doEnable,
+                    Locals.SearchDirectoryItem.SearchSubDirs= Parameters.doEnable,
+                    Locals.SearchDirectoryItem.Path= Locals.path,
+                    // Defaults
+                    Locals.SearchDirectoryItem.ExcludeHiddenSubdirs= True,
+                    Locals.SearchDirectoryItem.FileExtRestrictions = "",
+               Module Load Option:                Preload when execution begins
+               Module Unload Option:              Unload when sequence file is closed
+
+          Step: "Process Search Directory Item"
+               StepType, Adapter:                 Sequence Call, Sequence
+               Description:
+                    Call InsertUpdateDirectoryItem(Locals.SearchDirectoryItem ) in
+                    <Current File>
+               Module Load Option:                Preload when execution begins
+               Module Unload Option:              Unload when sequence file is closed
+               Flow Properties:                   
+                    Sequence Call Tracing: Disable
+
+     Step: "End"
+          StepType, Adapter:                 NI_Flow_End, <None>
+          Description:
+
+          Module Load Option:                Load dynamically
+          Module Unload Option:              Unload when sequence file is closed
+
+Sequence: "ReadFile"
+---------------------------------------
+Type:                              Normal
+Disable Results for All Steps:     False
+Goto Cleanup on failure:           Use Station Option
+Number of Setup steps:             0
+Number of Main steps:              5
+Number of Cleanup steps:           0
+
+     Parameters:
+     ---------------------------------------
+     FilePath (String - by reference)                   
+          "project-search-directories.txt"
+     FileLines (Array of Strings[0..empty] - by reference) ...
+
+     Locals:
+     ---------------------------------------
+     Text (String)                                      
+          ""
+     File (Object Reference)                  Nothing
+     ResultList (Array of Result[0..empty])   ...
+     EOF (Boolean)                            False
+
+     Main
+     ---------------------------------------
+     Step: "Open Text File For Reading"
+          StepType, Adapter:                 Action, ActiveX/COM
+          Description:
+               Action,  Create FileSystemObject; Locals.File = Call
+               IFileSystem3.OpenTextFile (Parameters.FilePath , ForReading,
+               False, TristateFalse)
+          Module Load Option:                Preload when execution begins
+          Module Unload Option:              Unload when sequence file is closed
+          Record Results:                    Disabled
+          Flow Properties:                   
+               Pre Expression:
+                  SetNumElements(Parameters.FileLines, 0)
+               
+               Result Recording: Disabled
+
+     Step: "Read Text From File"
+          StepType, Adapter:                 Action, ActiveX/COM
+          Description:
+               Action,  Step.Result.ReportText = Call
+               ITextStream{Locals.File}.ReadLine
+          Module Load Option:                Preload when execution begins
+          Module Unload Option:              Unload when sequence file is closed
+          Record Results:                    Disabled
+          Step Fail Causes Seq Fail:         False
+          Flow Properties:                   
+               Post Expression:
+                  SetNumElements(Parameters.FileLines,
+               GetNumElements(Parameters.FileLines) + 1),
+                  Parameters.FileLines[GetNumElements(Parameters.FileLines) - 1]
+               = Step.Result.ReportText,
+               
+               
+               Status Expression:
+                  Step.Result.Error.Occurred==False? "Passed":"Failed"
+               
+               Result Recording: Disabled
+               On Step Failure:  Do Not Fail Sequence
+
+     Step: "Get End Of Line"
+          StepType, Adapter:                 Action, ActiveX/COM
+          Description:
+               Action,  Locals.EOF = Get ITextStream{Locals.File}.AtEndOfStream
+          Module Load Option:                Preload when execution begins
+          Module Unload Option:              Unload when sequence file is closed
+          Record Results:                    Disabled
+          Step Fail Causes Seq Fail:         False
+          Flow Properties:                   
+               Status Expression:
+                  Step.Result.Error.Occurred==False? "Passed":"Failed"
+               
+               Result Recording: Disabled
+               On Step Failure:  Do Not Fail Sequence
+
+     Step: "Goto"
+          StepType, Adapter:                 Goto, <None>
+          Description:
+               Goto Read Text From File
+          Module Load Option:                Preload when execution begins
+          Module Unload Option:              Unload when sequence file is closed
+          Flow Properties:                   
+               Precondition:
+                  Locals.EOF == False
+               
+               Post Action:
+                  Goto Read Text From File
+
+     Step: "Close Text File"
+          StepType, Adapter:                 Action, ActiveX/COM
+          Description:
+               Action,  Call ITextStream{Locals.File}.Close
+          Module Load Option:                Preload when execution begins
+          Module Unload Option:              Unload when sequence file is closed
+          Record Results:                    Disabled
+          Step Fail Causes Seq Fail:         False
+          Flow Properties:                   
+               Result Recording: Disabled
+               On Step Failure:  Do Not Fail Sequence
+
+Sequence: "InsertUpdateDirectoryItem"
+---------------------------------------
+Type:                              Normal
+Disable Results for All Steps:     False
+Goto Cleanup on failure:           Use Station Option
+Number of Setup steps:             0
+Number of Main steps:              17
+Number of Cleanup steps:           0
+
+     Parameters:
+     ---------------------------------------
+     SearchDirectoryItem (Container)          ...
+
+     Locals:
+     ---------------------------------------
+     ResultList (Array of Result[0..empty])   ...
+     ClonedElement (Object Reference)         Nothing
+     CfgFile (Object Reference)               Nothing
+     NumElements (Number)                     0
+     SDList (Object Reference)                Nothing
+     Counter (Number)                         0
+
+     Main
+     ---------------------------------------
+     Step: "Get The Cfg File"
+          StepType, Adapter:                 Action, ActiveX/COM
+          Description:
+               Action,  Locals.CfgFile = Get IEngine{RunState.Engine}.ConfigFile
+          Module Load Option:                Preload when execution begins
+          Module Unload Option:              Unload when sequence file is closed
+
+     Step: "Get the Search Directories"
+          StepType, Adapter:                 Action, ActiveX/COM
+          Description:
+               Action,  Locals.SDList = Call
+               PropertyObject{Locals.CfgFile}.GetPropertyObject
+               ("Data.SearchDirectories", 0)
+          Module Load Option:                Preload when execution begins
+          Module Unload Option:              Unload when sequence file is closed
+
+     Step: "Get Number of Elements"
+          StepType, Adapter:                 Action, ActiveX/COM
+          Description:
+               Action,  Locals.NumElements = Call
+               PropertyObject{Locals.SDList}.GetNumElements
+          Module Load Option:                Preload when execution begins
+          Module Unload Option:              Unload when sequence file is closed
+          Flow Properties:                   
+               Post Expression:
+                  Locals.counter = Locals.NumElements
+
+     Step: "Clone One Element"
+          StepType, Adapter:                 Action, ActiveX/COM
+          Description:
+               Action,  Locals.ClonedElement = Call
+               PropertyObject{Locals.CfgFile}.Clone ("Data.SearchDirectories[" +
+               Str(RunState.LoopIndex) + "]", 0)
+          Module Load Option:                Preload when execution begins
+          Module Unload Option:              Unload when sequence file is closed
+          Flow Properties:                   
+               Custom Looping:
+                  RunState.LoopIndex = 0;    // Loop Initialization
+                  while (RunState.LoopIndex < Locals.NumElements )
+                  {
+                       ExecuteStep();
+                       RunState.LoopIndex += 1;    // Loop Increment
+                  }
+                  Step.Status = RunState.LoopNumPassed /
+               RunState.LoopNumIterations < 1 ? "Failed" : "Passed";    // Loop
+               Status
+               
+               Pre Expression:
+                  // Counter is initialized to number of items in search dirs
+               after previous step
+               
+               Post Expression:
+                  Locals.counter = (ToLower(Locals.ClonedElement->Path) ==
+               ToLower(Parameters.SearchDirectoryItem.Path)) ?
+               RunState.LoopIndex : Locals.counter
+
+     Step: "If"
+          StepType, Adapter:                 NI_Flow_If, <None>
+          Description:
+               Locals.counter == Locals.NumElements
+          Module Load Option:                Load dynamically
+          Module Unload Option:              Unload when sequence file is closed
+
+          Step: "Prepare For Insertion"
+               StepType, Adapter:                 Statement, <None>
+               Description:
+                    Locals.ClonedElement->Path = Parameters.SearchDirectoryItem.Path,
+                    Locals.ClonedElement->SearchSubDirs=
+                    Parameters.SearchDirectoryItem.SearchSubDirs,
+                    Locals.ClonedElement->ExcludeHiddenSubdirs=
+                    Parameters.SearchDirectoryItem.ExcludeHiddenSubdirs,
+                    Locals.ClonedElement->FileExtRestrictions=
+                    Parameters.SearchDirectoryItem.FileExtRestrictions,
+                    Locals.ClonedElement->Disabled=
+                    Parameters.SearchDirectoryItem.Disabled
+               Module Load Option:                Preload when execution begins
+               Module Unload Option:              Unload when sequence file is closed
+
+          Step: "Insert The Cloned Element"
+               StepType, Adapter:                 Action, ActiveX/COM
+               Description:
+                    Action,  Call
+                    PropertyObject{Locals.SDList}.SetPropertyObjectByOffset
+                    (Locals.NumElements, 1, Locals.ClonedElement)
+               Module Load Option:                Preload when execution begins
+               Module Unload Option:              Unload when sequence file is closed
+
+     Step: "Else"
+          StepType, Adapter:                 NI_Flow_Else, <None>
+          Description:
+
+          Module Load Option:                Load dynamically
+          Module Unload Option:              Unload when sequence file is closed
+
+          Step: "Update Search Directory Entry: Path"
+               StepType, Adapter:                 Action, ActiveX/COM
+               Description:
+                    Action,  Call PropertyObject{Locals.CfgFile}.SetValString
+                    ("Data.SearchDirectories[" + str(Locals.counter) + "].Path", 0,
+                    Parameters.SearchDirectoryItem.Path)
+               Module Load Option:                Preload when execution begins
+               Module Unload Option:              Unload when sequence file is closed
+
+          Step: "Update Search Directory Entry: FileExtRestrictions"
+               StepType, Adapter:                 Action, ActiveX/COM
+               Description:
+                    Action,  Call PropertyObject{Locals.CfgFile}.SetValString
+                    ("Data.SearchDirectories[" + str(Locals.counter) +
+                    "].FileExtRestrictions", 0,
+                    Parameters.SearchDirectoryItem.FileExtRestrictions)
+               Module Load Option:                Preload when execution begins
+               Module Unload Option:              Unload when sequence file is closed
+
+          Step: "Update Search Directory Entry: SearchSubDirs"
+               StepType, Adapter:                 Action, ActiveX/COM
+               Description:
+                    Action,  Call PropertyObject{Locals.CfgFile}.SetValBoolean
+                    ("Data.SearchDirectories[" + str(Locals.counter) +
+                    "].SearchSubDirs", 0,
+                    Parameters.SearchDirectoryItem.SearchSubDirs)
+               Module Load Option:                Preload when execution begins
+               Module Unload Option:              Unload when sequence file is closed
+
+          Step: "Update Search Directory Entry: ExcludeHiddenSubdirs"
+               StepType, Adapter:                 Action, ActiveX/COM
+               Description:
+                    Action,  Call PropertyObject{Locals.CfgFile}.SetValBoolean
+                    ("Data.SearchDirectories[" + str(Locals.counter) +
+                    "].ExcludeHiddenSubdirs", 0,
+                    Parameters.SearchDirectoryItem.ExcludeHiddenSubdirs)
+               Module Load Option:                Preload when execution begins
+               Module Unload Option:              Unload when sequence file is closed
+
+          Step: "Update Search Directory Entry: Disabled"
+               StepType, Adapter:                 Action, ActiveX/COM
+               Description:
+                    Action,  Call PropertyObject{Locals.CfgFile}.SetValBoolean
+                    ("Data.SearchDirectories[" + str(Locals.counter) + "].Disabled",
+                    0, Parameters.SearchDirectoryItem.Disabled)
+               Module Load Option:                Preload when execution begins
+               Module Unload Option:              Unload when sequence file is closed
+
+     Step: "End"
+          StepType, Adapter:                 NI_Flow_End, <None>
+          Description:
+
+          Module Load Option:                Load dynamically
+          Module Unload Option:              Unload when sequence file is closed
+
+     Step: "Increment Change Count"
+          StepType, Adapter:                 Action, ActiveX/COM
+          Description:
+               Action,  Call PropertyObjectFile{Locals.CfgFile}.IncChangeCount
+          Module Load Option:                Preload when execution begins
+          Module Unload Option:              Unload when sequence file is closed
+
+     Step: "Save"
+          StepType, Adapter:                 Action, ActiveX/COM
+          Description:
+               Action,  Call
+               PropertyObjectFile{Locals.CfgFile}.SaveFileIfModified (False)
+          Module Load Option:                Preload when execution begins
+          Module Unload Option:              Unload when sequence file is closed
+
+     Step: "Reload Search Directories and Step Modules"
+          StepType, Adapter:                 Statement, <None>
+          Description:
+               RunState.Engine.SearchDirectories.Reload(),
+               RunState.Engine.UnloadAllModules()
+               
+          Module Load Option:                Preload when execution begins
+          Module Unload Option:              Unload when sequence file is closed
+
+Sequence: "ReportOptions"
+---------------------------------------
+Comment:
+     The report generator result processing component calls this from its Begin
+     sequence.  Override it to modify the options.
+Type:                              Normal
+Disable Results for All Steps:     True
+Goto Cleanup on failure:           Use Station Option
+Number of Setup steps:             0
+Number of Main steps:              1
+Number of Cleanup steps:           0
+
+     Parameters:
+     ---------------------------------------
+     ReportOptions (ReportOptions (Container) - by reference) ...
+     ModelPlugin (NI_ModelPlugin (Container) - by reference) ...
+     ModelPluginConfiguration (NI_ModelPluginConfiguration (Container) - by reference) ...
+
+
+     Main
+     ---------------------------------------
+     Step: "Disable Report Generation "
+          StepType, Adapter:                 Statement, <None>
+          Description:
+               Parameters.ReportOptions.DisableReportGeneration = True
+          Module Load Option:                Preload when execution begins
+          Module Unload Option:              Unload when sequence file is closed
+

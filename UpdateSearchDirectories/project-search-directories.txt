@@ -1,0 +1,3 @@
+\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW
+\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source
+\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Labview Project

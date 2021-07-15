@@ -1,0 +1,344 @@
+[Recursion Level]	[Call Target Type]	[]	[Step Name]	[Step Name]	[Step Name]
+[0]	[SEQ][Root]	S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\Sentinel4Main.seq	[MainSequence]
+[1]	[EXE]		[Open Report: Text        ]		C:\WINDOWS\system32\cmd.exe
+[1]	[VI]		[xCopy                    ]		\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Labview Project\lib_vi\File Copy4\subVIs\Copy Sentinel4Main.vi
+[1]	[SEQ]		[SetupJig                 ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\TestJigSetup.seq	[MainSequence]
+[2]	[VI]			[CheckDevices             ]			[To DAQ]	DAQ Self Test.vi
+[2]	[VI]			[GetConfigLSb             ]			[To DAQ]	Digital IO Control.vi
+[2]	[VI]			[GetConfigMSb             ]			[To DAQ]	Digital IO Control.vi
+[2]	[VI]			[GetConfigMSb             ]			[To DAQ]	Digital IO Control.vi
+[2]	[VI]			[ClearAllAnaologOutputs   ]			[To DAQ]	Analog Output Control.vi
+[2]	[VI]			[ClearAllAnaologOutputs   ]			[To DAQ]	Analog Output Control.vi
+[1]	[SEQ]		[InitDigitalOutputs       ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\Sentinel4Main.seq	[InitOutputs]
+[2]	[VI]			[Remove Battery Load      ]			[To DAQ]	Digital IO Control.vi
+[1]	[VI]		[CheckTPLever             ]		[To DAQ]	Digital IO Control.vi
+[1]	[VI]		[CheckTPLever             ]		[To DAQ]	Digital IO Control.vi
+[1]	[SEQ]		[SetupAndPowerSequence    ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\GDIpowersequence.seq	[MainSequence]
+[2]	[VI]			[xCopy                    ]			\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Labview Project\lib_vi\File Copy4\subVIs\Copy GDIpowersequence.vi
+[2]	[VI]			[Remove4R7                ]			[To DAQ]	Digital IO Control.vi
+[2]	[VI]			[CheckPreSwitcherShort    ]			[To DAQ]	Voltage Measure Loop.vi
+[2]	[VI]			[Check5V0Short            ]			[To DAQ]	Voltage Measure Loop.vi
+[2]	[VI]			[Check3V3Short            ]			[To DAQ]	Voltage Measure Loop.vi
+[2]	[VI]			[MainFuseTestActivate     ]			[To DAQ]	Analog Output Control.vi
+[2]	[VI]			[CheckFuseF1              ]			[To DAQ]	Voltage Measure Loop.vi
+[2]	[VI]			[EndMainFuseTest          ]			[To DAQ]	Analog Output Control.vi
+[2]	[SEQ]			[ChargerInputTest         ]			S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\GDIpowersequence.seq	[ChargerInputSequence]
+[3]	[VI]				[ActivateCHARGE-          ]				[To DAQ]	Analog Output Control.vi
+[3]	[VI]				[CheckD15                 ]				[To DAQ]	Voltage Measure Loop.vi
+[3]	[VI]				[DeactivateCHARGE-        ]				[To DAQ]	Analog Output Control.vi
+[3]	[VI]				[ActivateCHARGE+          ]				[To DAQ]	Analog Output Control.vi
+[3]	[VI]				[CheckD14                 ]				[To DAQ]	Voltage Measure Loop.vi
+[3]	[VI]				[DeactivateCHARGE+        ]				[To DAQ]	Analog Output Control.vi
+[2]	[VI]			[Get zero current reading ]			[To DAQ]	Voltage Measure Loop.vi
+[2]	[VI]			[Apply Battery Voltage    ]			[To DAQ]	Analog Output Control.vi
+[2]	[VI]			[Check high current       ]			[To DAQ]	Voltage Measure Loop.vi
+[2]	[VI]			[Apply Battery Voltage    ]			[To DAQ]	Analog Output Control.vi
+[2]	[VI]			[Check Switchers Initial  ]			[To DAQ]	Voltage Measure Loop.vi
+[2]	[VI]			[Apply Charger Voltage    ]			[To DAQ]	Analog Output Control.vi
+[2]	[VI]			[Check high current       ]			[To DAQ]	Voltage Measure Loop.vi
+[2]	[VI]			[Check high current       ]			[To DAQ]	Voltage Measure Loop.vi
+[2]	[VI]			[Check Switcher D+3V3_S1 R]			[To DAQ]	Voltage Measure Loop.vi
+[2]	[VI]			[Check Switcher D+3V3_S3 R]			[To DAQ]	Voltage Measure Loop.vi
+[2]	[VI]			[Check Switcher D+3V3_S4 R]			[To DAQ]	Voltage Measure Loop.vi
+[2]	[VI]			[CurrentCheck             ]			[To DAQ]	Voltage Measure Loop.vi
+[2]	[VI]			[Remove Charger Voltage   ]			[To DAQ]	Analog Output Control.vi
+[2]	[VI]			[EndMainFuseTest          ]			[To DAQ]	Digital IO Control.vi
+[2]	[VI]			[Remove Battery Voltage   ]			[To DAQ]	Analog Output Control.vi
+[1]	[SEQ]		[PostPowerTestInit        ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\Sentinel4Main.seq	[PostPowerTestStart]
+[2]	[VI]			[Remove CHARGE+ Voltage   ]			[To DAQ]	Analog Output Control.vi
+[2]	[VI]			[Apply CHARGE- Voltage    ]			[To DAQ]	Analog Output Control.vi
+[2]	[VI]			[Apply Battery Voltage    ]			[To DAQ]	Analog Output Control.vi
+[1]	[SEQ]		[Call UUTTestProgramming  ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\Sentinel4Main.seq	[UUTTestProgramming]
+[2]	[EXE]			[Chip Erase               ]			C:\Program Files\Atmel\Studio\7.0\atbackend\atprogram.exe (Module Not Found in Current TestStand Search Directories List)
+[2]	[EXE]			[Chip Program Test Code   ]			C:\Program Files\Atmel\Studio\7.0\atbackend\atprogram.exe (Module Not Found in Current TestStand Search Directories List)
+[2]	[EXE]			[Chip Erase               ]			 (Module Not Found in Current TestStand Search Directories List)
+[2]	[EXE]			[Chip Program Test Code   ]			 (Module Not Found in Current TestStand Search Directories List)
+[2]	[EXE]			[Chip Reset               ]			 (Module Not Found in Current TestStand Search Directories List)
+[1]	[SEQ]		[Enable uC 3V3            ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+[2]	[VI]			[PackageTxMsg             ]			[To/From UUT]	SentinelTestSWcmdPackager.vi
+[2]	[VI]			[UartComms                ]			[To/From UUT]	UartCommunication.vi
+[2]	[VI]			[GetRxCRC                 ]			[To/From UUT]	Calculate CCITT CRC.vi
+[2]	[VI]			[UnpackageRxMsg           ]			[To/From UUT]	SentinelTestSWcmdUnpackage.vi
+[1]	[SEQ]		[Reset RTC                ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+[2]	[VI]			[PackageTxMsg             ]			[To/From UUT]	SentinelTestSWcmdPackager.vi
+[2]	[VI]			[UartComms                ]			[To/From UUT]	UartCommunication.vi
+[2]	[VI]			[GetRxCRC                 ]			[To/From UUT]	Calculate CCITT CRC.vi
+[2]	[VI]			[UnpackageRxMsg           ]			[To/From UUT]	SentinelTestSWcmdUnpackage.vi
+[1]	[SEQ]		[Write User Page          ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+[2]	[VI]			[PackageTxMsg             ]			[To/From UUT]	SentinelTestSWcmdPackager.vi
+[2]	[VI]			[UartComms                ]			[To/From UUT]	UartCommunication.vi
+[2]	[VI]			[GetRxCRC                 ]			[To/From UUT]	Calculate CCITT CRC.vi
+[2]	[VI]			[UnpackageRxMsg           ]			[To/From UUT]	SentinelTestSWcmdUnpackage.vi
+[1]	[SEQ]		[Test 5V Switcher         ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\Sentinel4Main.seq	[Test 5V Switcher]
+[2]	[SEQ]			[Enable uC 5V0            ]			S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+[3]	[VI]				[PackageTxMsg             ]				[To/From UUT]	SentinelTestSWcmdPackager.vi
+[3]	[VI]				[UartComms                ]				[To/From UUT]	UartCommunication.vi
+[3]	[VI]				[GetRxCRC                 ]				[To/From UUT]	Calculate CCITT CRC.vi
+[3]	[VI]				[UnpackageRxMsg           ]				[To/From UUT]	SentinelTestSWcmdUnpackage.vi
+[2]	[VI]			[Check Switcher D+5V0_S2 R]		[To DAQ]	Voltage Measure Loop.vi
+[1]	[SEQ]		[Test Backlight Control   ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\Sentinel4Main.seq	[Test Backlight Control]
+[2]	[SEQ]			[Disable uC Backlight     ]			S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+[3]	[VI]				[PackageTxMsg             ]			[To/From UUT]	SentinelTestSWcmdPackager.vi
+[3]	[VI]				[UartComms                ]			[To/From UUT]	UartCommunication.vi
+[3]	[VI]				[GetRxCRC                 ]			[To/From UUT]	Calculate CCITT CRC.vi
+[3]	[VI]				[UnpackageRxMsg           ]			[To/From UUT]	SentinelTestSWcmdUnpackage.vi
+[2]	[VI]			[Check LCD BL[0] OFF      ]			[To DAQ]	Digital IO Control.vi
+[2]	[VI]			[Check LCD BL[1] OFF      ]			[To DAQ]	Digital IO Control.vi
+[2]	[VI]			[Check LCD BL[2] OFF      ]			[To DAQ]	Digital IO Control.vi
+[2]	[VI]			[Check LCD BL[3] OFF      ]			[To DAQ]	Digital IO Control.vi
+[2]	[SEQ]			[Enable uC Backlight      ]			S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+[3]	[VI]				[PackageTxMsg             ]				[To/From UUT]	SentinelTestSWcmdPackager.vi
+[3]	[VI]				[UartComms                ]				[To/From UUT]	UartCommunication.vi
+[3]	[VI]				[GetRxCRC                 ]				[To/From UUT]	Calculate CCITT CRC.vi
+[3]	[VI]				[UnpackageRxMsg           ]				[To/From UUT]	SentinelTestSWcmdUnpackage.vi
+[2]	[VI]			[Check LCD BL[0] ON       ]			[To DAQ]	Digital IO Control.vi
+[2]	[VI]			[Check LCD BL[1] ON       ]			[To DAQ]	Digital IO Control.vi
+[2]	[VI]			[Check LCD BL[2] ON       ]			[To DAQ]	Digital IO Control.vi
+[2]	[VI]			[Check LCD BL[3] ON       ]			[To DAQ]	Digital IO Control.vi
+[2]	[SEQ]			[Disable uC Backlight     ]			S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+[3]	[VI]				[PackageTxMsg             ]				[To/From UUT]	SentinelTestSWcmdPackager.vi
+[3]	[VI]				[UartComms                ]				[To/From UUT]	UartCommunication.vi
+[3]	[VI]				[GetRxCRC                 ]				[To/From UUT]	Calculate CCITT CRC.vi
+[3]	[VI]				[UnpackageRxMsg           ]				[To/From UUT]	SentinelTestSWcmdUnpackage.vi
+[1]	[SEQ]		[Test Charger Control     ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\Sentinel4Main.seq	[Test Charger Control]
+[2]	[SEQ]			[Disable uC Charger       ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+[3]	[VI]				[PackageTxMsg             ]				[To/From UUT]	SentinelTestSWcmdPackager.vi
+[3]	[VI]				[UartComms                ]				[To/From UUT]	UartCommunication.vi
+[3]	[VI]				[GetRxCRC                 ]				[To/From UUT]	Calculate CCITT CRC.vi
+[3]	[VI]				[UnpackageRxMsg           ]				[To/From UUT]	SentinelTestSWcmdUnpackage.vi
+[2]	[VI]			[Check nCE OFF            ]			[To DAQ]	Digital IO Control.vi
+[2]	[SEQ]			[Enable uC Charger        ]			S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+[3]	[VI]				[PackageTxMsg             ]				[To/From UUT]	SentinelTestSWcmdPackager.vi
+[3]	[VI]				[UartComms                ]				[To/From UUT]	UartCommunication.vi
+[3]	[VI]				[GetRxCRC                 ]				[To/From UUT]	Calculate CCITT CRC.vi
+[3]	[VI]				[UnpackageRxMsg           ]				[To/From UUT]	SentinelTestSWcmdUnpackage.vi
+[2]	[VI]			[Check nCE ON             ]			[To DAQ]	Digital IO Control.vi
+[2]	[VI]			[Remove CHARGE+ Voltage   ]			[To DAQ]	Analog Output Control.vi
+[2]	[VI]			[Remove CHARGE- Voltage   ]			[To DAQ]	Analog Output Control.vi
+[2]	[VI]			[Check nPG HIGH           ]			[To DAQ]	Digital IO Control.vi
+[2]	[VI]			[Apply CHARGE+ Voltage    ]			[To DAQ]	Analog Output Control.vi
+[2]	[VI]			[Check nPG LOW            ]			[To DAQ]	Digital IO Control.vi
+[2]	[SEQ]			[Get uC Fuel Gauge Values ]			S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+[3]	[VI]				[PackageTxMsg             ]				[To/From UUT]	SentinelTestSWcmdPackager.vi
+[3]	[VI]				[UartComms                ]				[To/From UUT]	UartCommunication.vi
+[3]	[VI]				[GetRxCRC                 ]				[To/From UUT]	Calculate CCITT CRC.vi
+[3]	[VI]				[UnpackageRxMsg           ]				[To/From UUT]	SentinelTestSWcmdUnpackage.vi
+[2]	[VI]			[Remove CHARGE+ Voltage   ]			[To DAQ]	Analog Output Control.vi
+[2]	[VI]			[Apply CHARGE- Voltage    ]			[To DAQ]	Analog Output Control.vi
+[2]	[VI]			[Check nPG LOW            ]			[To DAQ]	Digital IO Control.vi
+[2]	[SEQ]			[Enable uC Charger Trickle]			S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+[3]	[VI]				[PackageTxMsg             ]				[To/From UUT]	SentinelTestSWcmdPackager.vi
+[3]	[VI]				[UartComms                ]				[To/From UUT]	UartCommunication.vi
+[3]	[VI]				[GetRxCRC                 ]				[To/From UUT]	Calculate CCITT CRC.vi
+[3]	[VI]				[UnpackageRxMsg           ]				[To/From UUT]	SentinelTestSWcmdUnpackage.vi
+[2]	[VI]			[Check CM HIGH            ]			[To DAQ]	Digital IO Control.vi
+[2]	[SEQ]			[Enable uC Charger Boost M]			S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+[3]	[VI]				[PackageTxMsg             ]				[To/From UUT]	SentinelTestSWcmdPackager.vi
+[3]	[VI]				[UartComms                ]				[To/From UUT]	UartCommunication.vi
+[3]	[VI]				[GetRxCRC                 ]				[To/From UUT]	Calculate CCITT CRC.vi
+[3]	[VI]				[UnpackageRxMsg           ]				[To/From UUT]	SentinelTestSWcmdUnpackage.vi
+[2]	[VI]			[Check CM LOW             ]			[To DAQ]	Digital IO Control.vi
+[2]	[SEQ]			[Disable uC Charger       ]			S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+[3]	[VI]				[PackageTxMsg             ]				[To/From UUT]	SentinelTestSWcmdPackager.vi
+[3]	[VI]				[UartComms                ]				[To/From UUT]	UartCommunication.vi
+[3]	[VI]				[GetRxCRC                 ]				[To/From UUT]	Calculate CCITT CRC.vi
+[3]	[VI]				[UnpackageRxMsg           ]				[To/From UUT]	SentinelTestSWcmdUnpackage.vi
+[1]	[SEQ]		[Read RTC                 ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+[2]	[VI]			[PackageTxMsg             ]			[To/From UUT]	SentinelTestSWcmdPackager.vi
+[2]	[VI]			[UartComms                ]			[To/From UUT]	UartCommunication.vi
+[2]	[VI]			[GetRxCRC                 ]			[To/From UUT]	Calculate CCITT CRC.vi
+[2]	[VI]			[UnpackageRxMsg           ]			[To/From UUT]	SentinelTestSWcmdUnpackage.vi
+[1]	[SEQ]		[Test LED Driver          ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\Sentinel4Main.seq	[Test LEDS]
+[2]	[SEQ]			[Disable uC LEDS          ]			S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+[3]	[VI]				[PackageTxMsg             ]				[To/From UUT]	SentinelTestSWcmdPackager.vi
+[3]	[VI]				[UartComms                ]				[To/From UUT]	UartCommunication.vi
+[3]	[VI]				[GetRxCRC                 ]				[To/From UUT]	Calculate CCITT CRC.vi
+[3]	[VI]				[UnpackageRxMsg           ]				[To/From UUT]	SentinelTestSWcmdUnpackage.vi
+[2]	[VI]			[Check RED LED Resistor Vo]			[To DAQ]	Voltage Measure Loop.vi
+[2]	[VI]			[Check GREEN LED Resistor ]			[To DAQ]	Voltage Measure Loop.vi
+[2]	[VI]			[Check BLUE LED Resistor V]			[To DAQ]	Voltage Measure Loop.vi
+[2]	[SEQ]			[Get uC Fuel Gauge Values ]			S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+[3]	[VI]				[PackageTxMsg             ]				[To/From UUT]	SentinelTestSWcmdPackager.vi
+[3]	[VI]				[UartComms                ]				[To/From UUT]	UartCommunication.vi
+[3]	[VI]				[GetRxCRC                 ]				[To/From UUT]	Calculate CCITT CRC.vi
+[3]	[VI]				[UnpackageRxMsg           ]				[To/From UUT]	SentinelTestSWcmdUnpackage.vi
+[2]	[SEQ]			[Enable uC D10 LEDS       ]			S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+[3]	[VI]				[PackageTxMsg             ]				[To/From UUT]	SentinelTestSWcmdPackager.vi
+[3]	[VI]				[UartComms                ]				[To/From UUT]	UartCommunication.vi
+[3]	[VI]				[GetRxCRC                 ]				[To/From UUT]	Calculate CCITT CRC.vi
+[3]	[VI]				[UnpackageRxMsg           ]				[To/From UUT]	SentinelTestSWcmdUnpackage.vi
+[2]	[SEQ]			[Get uC Fuel Gauge Values ]			S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+[3]	[VI]				[PackageTxMsg             ]				[To/From UUT]	SentinelTestSWcmdPackager.vi
+[3]	[VI]				[UartComms                ]				[To/From UUT]	UartCommunication.vi
+[3]	[VI]				[GetRxCRC                 ]				[To/From UUT]	Calculate CCITT CRC.vi
+[3]	[VI]				[UnpackageRxMsg           ]				[To/From UUT]	SentinelTestSWcmdUnpackage.vi
+[2]	[SEQ]			[Enable uC D11 LEDS       ]			S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+[3]	[VI]				[PackageTxMsg             ]				[To/From UUT]	SentinelTestSWcmdPackager.vi
+[3]	[VI]				[UartComms                ]				[To/From UUT]	UartCommunication.vi
+[3]	[VI]				[GetRxCRC                 ]				[To/From UUT]	Calculate CCITT CRC.vi
+[3]	[VI]				[UnpackageRxMsg           ]				[To/From UUT]	SentinelTestSWcmdUnpackage.vi
+[2]	[SEQ]			[Get uC Fuel Gauge Values ]			S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+[3]	[VI]				[PackageTxMsg             ]				[To/From UUT]	SentinelTestSWcmdPackager.vi
+[3]	[VI]				[UartComms                ]				[To/From UUT]	UartCommunication.vi
+[3]	[VI]				[GetRxCRC                 ]				[To/From UUT]	Calculate CCITT CRC.vi
+[3]	[VI]				[UnpackageRxMsg           ]				[To/From UUT]	SentinelTestSWcmdUnpackage.vi
+[2]	[SEQ]			[Enable uC D9 LEDS        ]			S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+[3]	[VI]				[PackageTxMsg             ]				[To/From UUT]	SentinelTestSWcmdPackager.vi
+[3]	[VI]				[UartComms                ]				[To/From UUT]	UartCommunication.vi
+[3]	[VI]				[GetRxCRC                 ]				[To/From UUT]	Calculate CCITT CRC.vi
+[3]	[VI]				[UnpackageRxMsg           ]				[To/From UUT]	SentinelTestSWcmdUnpackage.vi
+[2]	[SEQ]			[Get uC Fuel Gauge Values ]			S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+[3]	[VI]				[PackageTxMsg             ]				[To/From UUT]	SentinelTestSWcmdPackager.vi
+[3]	[VI]				[UartComms                ]				[To/From UUT]	UartCommunication.vi
+[3]	[VI]				[GetRxCRC                 ]				[To/From UUT]	Calculate CCITT CRC.vi
+[3]	[VI]				[UnpackageRxMsg           ]				[To/From UUT]	SentinelTestSWcmdUnpackage.vi
+[2]	[SEQ]			[Enable uC D8 LEDS        ]			S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+[3]	[VI]				[PackageTxMsg             ]				[To/From UUT]	SentinelTestSWcmdPackager.vi
+[3]	[VI]				[UartComms                ]				[To/From UUT]	UartCommunication.vi
+[3]	[VI]				[GetRxCRC                 ]				[To/From UUT]	Calculate CCITT CRC.vi
+[3]	[VI]				[UnpackageRxMsg           ]				[To/From UUT]	SentinelTestSWcmdUnpackage.vi
+[2]	[SEQ]			[Get uC Fuel Gauge Values ]			S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+[3]	[VI]				[PackageTxMsg             ]				[To/From UUT]	SentinelTestSWcmdPackager.vi
+[3]	[VI]				[UartComms                ]				[To/From UUT]	UartCommunication.vi
+[3]	[VI]				[GetRxCRC                 ]				[To/From UUT]	Calculate CCITT CRC.vi
+[3]	[VI]				[UnpackageRxMsg           ]				[To/From UUT]	SentinelTestSWcmdUnpackage.vi
+[2]	[SEQ]			[Enable uC Rear LEDS      ]			S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+[3]	[VI]				[PackageTxMsg             ]				[To/From UUT]	SentinelTestSWcmdPackager.vi
+[3]	[VI]				[UartComms                ]				[To/From UUT]	UartCommunication.vi
+[3]	[VI]				[GetRxCRC                 ]				[To/From UUT]	Calculate CCITT CRC.vi
+[3]	[VI]				[UnpackageRxMsg           ]				[To/From UUT]	SentinelTestSWcmdUnpackage.vi
+[2]	[VI]			[Check RED LED Resistor Vo]			[To DAQ]	Voltage Measure Loop.vi
+[2]	[VI]			[Check GREEN LED Resistor ]			[To DAQ]	Voltage Measure Loop.vi
+[2]	[VI]			[Check BLUE LED Resistor V]			[To DAQ]	Voltage Measure Loop.vi
+[2]	[SEQ]			[Get uC Fuel Gauge Values ]			S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+[3]	[VI]				[PackageTxMsg             ]				[To/From UUT]	SentinelTestSWcmdPackager.vi
+[3]	[VI]				[UartComms                ]				[To/From UUT]	UartCommunication.vi
+[3]	[VI]				[GetRxCRC                 ]				[To/From UUT]	Calculate CCITT CRC.vi
+[3]	[VI]				[UnpackageRxMsg           ]				[To/From UUT]	SentinelTestSWcmdUnpackage.vi
+[2]	[SEQ]			[Disable uC LEDS          ]			S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+[3]	[VI]				[PackageTxMsg             ]				[To/From UUT]	SentinelTestSWcmdPackager.vi
+[3]	[VI]				[UartComms                ]				[To/From UUT]	UartCommunication.vi
+[3]	[VI]				[GetRxCRC                 ]				[To/From UUT]	Calculate CCITT CRC.vi
+[3]	[VI]				[UnpackageRxMsg           ]				[To/From UUT]	SentinelTestSWcmdUnpackage.vi
+[1]	[SEQ]		[Test Sensors             ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\Sentinel4Main.seq	[Test Sensors]
+[2]	[SEQ]			[Request uC Init Daq      ]			S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+[3]	[VI]				[PackageTxMsg             ]				[To/From UUT]	SentinelTestSWcmdPackager.vi
+[3]	[VI]				[UartComms                ]				[To/From UUT]	UartCommunication.vi
+[3]	[VI]				[GetRxCRC                 ]				[To/From UUT]	Calculate CCITT CRC.vi
+[3]	[VI]				[UnpackageRxMsg           ]				[To/From UUT]	SentinelTestSWcmdUnpackage.vi
+[2]	[VI]			[Remove CH4 Load          ]			[To DAQ]	Digital IO Control.vi
+[2]	[VI]			[Apply CH4 Load           ]			[To DAQ]	Digital IO Control.vi
+[2]	[VI]			[Check CH4 SENS           ]			[To DAQ]	Voltage Measure Loop.vi
+[2]	[SEQ]			[Request uC Chan 1        ]			S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+[3]	[VI]				[PackageTxMsg             ]				[To/From UUT]	SentinelTestSWcmdPackager.vi
+[3]	[VI]				[UartComms                ]				[To/From UUT]	UartCommunication.vi
+[3]	[VI]				[GetRxCRC                 ]				[To/From UUT]	Calculate CCITT CRC.vi
+[3]	[VI]				[UnpackageRxMsg           ]				[To/From UUT]	SentinelTestSWcmdUnpackage.vi
+[2]	[VI]			[Apply CH4 Load           ]			[To DAQ]	Digital IO Control.vi
+[2]	[SEQ]			[Request uC Chan 2        ]			S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+[3]	[VI]				[PackageTxMsg             ]				[To/From UUT]	SentinelTestSWcmdPackager.vi
+[3]	[VI]				[UartComms                ]				[To/From UUT]	UartCommunication.vi
+[3]	[VI]				[GetRxCRC                 ]				[To/From UUT]	Calculate CCITT CRC.vi
+[3]	[VI]				[UnpackageRxMsg           ]				[To/From UUT]	SentinelTestSWcmdUnpackage.vi
+[2]	[SEQ]			[Request uC Chan 1        ]			S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+[3]	[VI]				[PackageTxMsg             ]				[To/From UUT]	SentinelTestSWcmdPackager.vi
+[3]	[VI]				[UartComms                ]				[To/From UUT]	UartCommunication.vi
+[3]	[VI]				[GetRxCRC                 ]				[To/From UUT]	Calculate CCITT CRC.vi
+[3]	[VI]				[UnpackageRxMsg           ]				[To/From UUT]	SentinelTestSWcmdUnpackage.vi
+[2]	[VI]			[Check CH4 SENS           ]			[To DAQ]	Voltage Measure Loop.vi
+[2]	[VI]			[Remove CO Load           ]			[To DAQ]	Digital IO Control.vi
+[2]	[VI]			[Remove H2S Load          ]			[To DAQ]	Digital IO Control.vi
+[2]	[VI]			[Remove Oxygen Load       ]			[To DAQ]	Digital IO Control.vi
+[2]	[SEQ]			[Request uC Chan 0        ]			S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+[3]	[VI]				[PackageTxMsg             ]				[To/From UUT]	SentinelTestSWcmdPackager.vi
+[3]	[VI]				[UartComms                ]				[To/From UUT]	UartCommunication.vi
+[3]	[VI]				[GetRxCRC                 ]				[To/From UUT]	Calculate CCITT CRC.vi
+[3]	[VI]				[UnpackageRxMsg           ]				[To/From UUT]	SentinelTestSWcmdUnpackage.vi
+[2]	[SEQ]			[Request uC Chan 3        ]			S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+[3]	[VI]				[PackageTxMsg             ]				[To/From UUT]	SentinelTestSWcmdPackager.vi
+[3]	[VI]				[UartComms                ]				[To/From UUT]	UartCommunication.vi
+[3]	[VI]				[GetRxCRC                 ]				[To/From UUT]	Calculate CCITT CRC.vi
+[3]	[VI]				[UnpackageRxMsg           ]				[To/From UUT]	SentinelTestSWcmdUnpackage.vi
+[2]	[SEQ]			[Request uC Chan 4        ]			S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+[3]	[VI]				[PackageTxMsg             ]				[To/From UUT]	SentinelTestSWcmdPackager.vi
+[3]	[VI]				[UartComms                ]				[To/From UUT]	UartCommunication.vi
+[3]	[VI]				[GetRxCRC                 ]				[To/From UUT]	Calculate CCITT CRC.vi
+[3]	[VI]				[UnpackageRxMsg           ]				[To/From UUT]	SentinelTestSWcmdUnpackage.vi
+[2]	[SEQ]			[Request uC Chan 5        ]			S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+[3]	[VI]				[PackageTxMsg             ]				[To/From UUT]	SentinelTestSWcmdPackager.vi
+[3]	[VI]				[UartComms                ]				[To/From UUT]	UartCommunication.vi
+[3]	[VI]				[GetRxCRC                 ]				[To/From UUT]	Calculate CCITT CRC.vi
+[3]	[VI]				[UnpackageRxMsg           ]				[To/From UUT]	SentinelTestSWcmdUnpackage.vi
+[2]	[VI]			[Apply CO Load            ]			[To DAQ]	Digital IO Control.vi
+[2]	[VI]			[Apply H2S Load           ]			[To DAQ]	Digital IO Control.vi
+[2]	[VI]			[Apply O2 Load            ]			[To DAQ]	Digital IO Control.vi
+[2]	[SEQ]			[Request uC Chan 4        ]			S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+[3]	[VI]				[PackageTxMsg             ]				[To/From UUT]	SentinelTestSWcmdPackager.vi
+[3]	[VI]				[UartComms                ]				[To/From UUT]	UartCommunication.vi
+[3]	[VI]				[GetRxCRC                 ]				[To/From UUT]	Calculate CCITT CRC.vi
+[3]	[VI]				[UnpackageRxMsg           ]				[To/From UUT]	SentinelTestSWcmdUnpackage.vi
+[2]	[SEQ]			[Request uC Chan 5        ]			S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+[3]	[VI]				[PackageTxMsg             ]				[To/From UUT]	SentinelTestSWcmdPackager.vi
+[3]	[VI]				[UartComms                ]				[To/From UUT]	UartCommunication.vi
+[3]	[VI]				[GetRxCRC                 ]				[To/From UUT]	Calculate CCITT CRC.vi
+[3]	[VI]				[UnpackageRxMsg           ]				[To/From UUT]	SentinelTestSWcmdUnpackage.vi
+[2]	[SEQ]			[Request uC Chan 6        ]			S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+[3]	[VI]				[PackageTxMsg             ]				[To/From UUT]	SentinelTestSWcmdPackager.vi
+[3]	[VI]				[UartComms                ]				[To/From UUT]	UartCommunication.vi
+[3]	[VI]				[GetRxCRC                 ]				[To/From UUT]	Calculate CCITT CRC.vi
+[3]	[VI]				[UnpackageRxMsg           ]				[To/From UUT]	SentinelTestSWcmdUnpackage.vi
+[2]	[SEQ]			[Request uC Chan 3        ]			S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+[3]	[VI]				[PackageTxMsg             ]				[To/From UUT]	SentinelTestSWcmdPackager.vi
+[3]	[VI]				[UartComms                ]				[To/From UUT]	UartCommunication.vi
+[3]	[VI]				[GetRxCRC                 ]				[To/From UUT]	Calculate CCITT CRC.vi
+[3]	[VI]				[UnpackageRxMsg           ]				[To/From UUT]	SentinelTestSWcmdUnpackage.vi
+[2]	[SEQ]			[Request uC Chan 4        ]			S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+[3]	[VI]				[PackageTxMsg             ]				[To/From UUT]	SentinelTestSWcmdPackager.vi
+[3]	[VI]				[UartComms                ]				[To/From UUT]	UartCommunication.vi
+[3]	[VI]				[GetRxCRC                 ]				[To/From UUT]	Calculate CCITT CRC.vi
+[3]	[VI]				[UnpackageRxMsg           ]				[To/From UUT]	SentinelTestSWcmdUnpackage.vi
+[2]	[SEQ]			[Request uC Chan 5        ]			S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+[3]	[VI]				[PackageTxMsg             ]				[To/From UUT]	SentinelTestSWcmdPackager.vi
+[3]	[VI]				[UartComms                ]				[To/From UUT]	UartCommunication.vi
+[3]	[VI]				[GetRxCRC                 ]				[To/From UUT]	Calculate CCITT CRC.vi
+[3]	[VI]				[UnpackageRxMsg           ]				[To/From UUT]	SentinelTestSWcmdUnpackage.vi
+[1]	[SEQ]		[Test Flash Devices       ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\Sentinel4Main.seq	[Test Flash]
+[2]	[SEQ]			[Request uC Flash 0 ID    ]			S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+[3]	[VI]				[PackageTxMsg             ]				[To/From UUT]	SentinelTestSWcmdPackager.vi
+[3]	[VI]				[UartComms                ]				[To/From UUT]	UartCommunication.vi
+[3]	[VI]				[GetRxCRC                 ]				[To/From UUT]	Calculate CCITT CRC.vi
+[3]	[VI]				[UnpackageRxMsg           ]				[To/From UUT]	SentinelTestSWcmdUnpackage.vi
+[2]	[SEQ]			[Request uC Flash 1 ID    ]			S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+[3]	[VI]				[PackageTxMsg             ]				[To/From UUT]	SentinelTestSWcmdPackager.vi
+[3]	[VI]				[UartComms                ]				[To/From UUT]	UartCommunication.vi
+[3]	[VI]				[GetRxCRC                 ]				[To/From UUT]	Calculate CCITT CRC.vi
+[3]	[VI]				[UnpackageRxMsg           ]				[To/From UUT]	SentinelTestSWcmdUnpackage.vi
+[1]	[SEQ]		[Test RFID Devices        ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\Sentinel4Main.seq	[Test RFID]
+[2]	[SEQ]			[Request uC Write RFID RAM]			S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+[3]	[VI]				[PackageTxMsg             ]				[To/From UUT]	SentinelTestSWcmdPackager.vi
+[3]	[VI]				[UartComms                ]				[To/From UUT]	UartCommunication.vi
+[3]	[VI]				[GetRxCRC                 ]				[To/From UUT]	Calculate CCITT CRC.vi
+[3]	[VI]				[UnpackageRxMsg           ]				[To/From UUT]	SentinelTestSWcmdUnpackage.vi
+[2]	[SEQ]			[Request uC Write RFID RAM]			S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+[3]	[VI]				[PackageTxMsg             ]				[To/From UUT]	SentinelTestSWcmdPackager.vi
+[3]	[VI]				[UartComms                ]				[To/From UUT]	UartCommunication.vi
+[3]	[VI]				[GetRxCRC                 ]				[To/From UUT]	Calculate CCITT CRC.vi
+[3]	[VI]				[UnpackageRxMsg           ]				[To/From UUT]	SentinelTestSWcmdUnpackage.vi
+[1]	[SEQ]		[Read User Page           ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	[MainSequence]
+[2]	[VI]			[PackageTxMsg             ]			[To/From UUT]	SentinelTestSWcmdPackager.vi
+[2]	[VI]			[UartComms                ]			[To/From UUT]	UartCommunication.vi
+[2]	[VI]			[GetRxCRC                 ]			[To/From UUT]	Calculate CCITT CRC.vi
+[2]	[VI]			[UnpackageRxMsg           ]			[To/From UUT]	SentinelTestSWcmdUnpackage.vi
+[1]	[SEQ]		[ClearDigitals            ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\Sentinel4Main.seq	[InitOutputs]
+[2]	[VI]			[Remove Battery Load      ]			[To DAQ]	Digital IO Control.vi
+[1]	[VI]		[Remove Battery Voltage   ]		[To DAQ]	Analog Output Control.vi
+[1]	[EXE]		[Chip Erase               ]		C:\Program Files\Atmel\AVR Tools\AVR32 Studio\plugins\com.atmel.avr.utilities.win32.x86_3.0.0.201009140848\os\win32\x86\bin\avr32program (Module Not Found in Current TestStand Search Directories List)
+[1]	[EXE]		[Chip Program Bootloader  ]		C:\Program Files\Atmel\AVR Tools\AVR32 Studio\plugins\com.atmel.avr.utilities.win32.x86_3.0.0.201009140848\os\win32\x86\bin\avr32program (Module Not Found in Current TestStand Search Directories List)
+[1]	[EXE]		[Chip Program Main Applica]		C:\Program Files\Atmel\AVR Tools\AVR32 Studio\plugins\com.atmel.avr.utilities.win32.x86_3.0.0.201009140848\os\win32\x86\bin\avr32program (Module Not Found in Current TestStand Search Directories List)
+[1]	[EXE]		[Chip Reset               ]		C:\Program Files\Atmel\AVR Tools\AVR32 Studio\plugins\com.atmel.avr.utilities.win32.x86_3.0.0.201009140848\os\win32\x86\bin\avr32program (Module Not Found in Current TestStand Search Directories List)
+[1]	[EXE]		[Chip Erase               ]		C:\Program Files\Atmel\Studio\7.0\atbackend\atprogram.exe (Module Not Found in Current TestStand Search Directories List)
+[1]	[EXE]		[Chip Program Bootloader  ]		C:\Program Files\Atmel\Studio\7.0\atbackend\atprogram.exe (Module Not Found in Current TestStand Search Directories List)
+[1]	[EXE]		[Chip Program Main Applica]		C:\Program Files\Atmel\Studio\7.0\atbackend\atprogram.exe (Module Not Found in Current TestStand Search Directories List)
+[1]	[SEQ]		[ClearDigitals            ]		S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\Sentinel4Main.seq	[InitOutputs]
+[2]	[VI]			[Remove Battery Load      ]			[To DAQ]	Digital IO Control.vi
+[1]	[VI]		[Remove Battery Voltage   ]		[To DAQ]	Analog Output Control.vi

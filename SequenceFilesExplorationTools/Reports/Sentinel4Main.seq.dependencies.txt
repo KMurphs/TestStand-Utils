@@ -1,0 +1,18 @@
+[EXE]	[                              ]			 (Module Not Found in Current TestStand Search Directories List)
+[EXE]	[atprogram.exe                 ]			C:\Program Files\Atmel\Studio\7.0\atbackend\atprogram.exe (Module Not Found in Current TestStand Search Directories List)
+[EXE]	[avr32program                  ]			C:\Program Files\Atmel\AVR Tools\AVR32 Studio\plugins\com.atmel.avr.utilities.win32.x86_3.0.0.201009140848\os\win32\x86\bin\avr32program (Module Not Found in Current TestStand Search Directories List)
+[EXE]	[cmd.exe                       ]			C:\WINDOWS\system32\cmd.exe
+[SEQ]	[GDIpowersequence.seq          ]			S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\GDIpowersequence.seq	
+[SEQ]	[Sentinel4Main.seq             ]			S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\Sentinel4Main.seq	
+[SEQ]	[SentinelUartHandShakingSeq.seq]			S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\SentinelUartHandShakingSeq.seq	
+[SEQ]	[TestJigSetup.seq              ]			S:\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\TS_source\TestJigSetup.seq	
+[VI]	[Analog Output Control.vi      ]			\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Analog Output Control.vi
+[VI]	[Calculate CCITT CRC.vi        ]			\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Calculate CCITT CRC.vi
+[VI]	[Copy GDIpowersequence.vi      ]			\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Labview Project\lib_vi\File Copy4\subVIs\Copy GDIpowersequence.vi
+[VI]	[Copy Sentinel4Main.vi         ]			\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Labview Project\lib_vi\File Copy4\subVIs\Copy Sentinel4Main.vi
+[VI]	[DAQ Self Test.vi              ]			\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\DAQ Self Test.vi
+[VI]	[Digital IO Control.vi         ]			\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\Digital IO Control.vi
+[VI]	[SentinelTestSWcmdPackager.vi  ]			\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdPackager.vi
+[VI]	[SentinelTestSWcmdUnpackage.vi ]			\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\SentinelTestSWcmdUnpackage.vi
+[VI]	[UartCommunication.vi          ]			\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\Parsec_Lib\LabVIEW\UartCommunication.vi
+[VI]	[Voltage Measure Loop.vi       ]			\\parsec.local\globalshare\Scratch\Stephane\Labview Schauenburg\pds\projects\Schauenburg\Sentinel 4\TestStand Deployment\sw\LV_source\Voltage Measure Loop.vi
