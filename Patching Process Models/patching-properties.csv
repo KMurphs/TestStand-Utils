@@ -1,0 +1,6 @@
+<PropertyGroup name='Group 1' id='2b4ab493-70cf-471a-9059-84cf3e619130' description='Description for Group 1'>
+<Sequence>,<Category>,<PropertyLookup>,<Value>
+MainSequence,{Parameters},Output_Path {String},C:\Tester\d-level-common\patching-process-models\Outputs\CustomCheetahNavSequentialModel.seq
+MainSequence,{Parameters},Model_Patches_Path {String},C:\Tester\d-level-common\patching-process-models\SequentialModel Patches.seq
+MainSequence,{Parameters},Model_Path {String},C:\Tester\d-level-common\patching-process-models\SequentialModel.seq
+<PropertyGroup>

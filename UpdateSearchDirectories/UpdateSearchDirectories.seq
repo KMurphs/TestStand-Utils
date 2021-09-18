@@ -1,11 +1,11 @@
 [__Header__]
 ProductName = "TestStand"
-ProductVersion = 14.0.0.274
-CompatibleProdVersion = 14.0.0.0
-Version = 773
+ProductVersion = 17.0.0.184
+CompatibleProdVersion = 17.0.0.0
+Version = 894
 Type = "SequenceFile"
 Path = ""
-ProductVersionString = "2014 SP1 (14.0.1.103)"
+ProductVersionString = "2017 (17.0.0.184)"
 CharEncoding = "SBCS"
 
 [DEF, %OBJROOT]
@@ -55,6 +55,7 @@ NI_ReportGeneratorPerSocketRuntimeVariables = Obj
 NI_ModelPluginConfiguration = Obj
 NI_ModelPluginConfigurationRuntimeVariables = Obj
 NI_ModelPluginConfigurationPerSocketRuntimeVariables = Obj
+NI_SequentialTestUUTsTerminationOptions = Enum
 
 [DEF, SF]
 Seq = Objs
@@ -1032,9 +1033,10 @@ ConditionExpr = "Locals.counter == Locals.NumElements "
 [SF.Seq[2].Main[5].TS]
 Id = "ID#:bGYb+bspPEa1+dsc6G4ogB"
 PostExpr Line0001 = "Locals.ClonedElement->Path = Parameters.SearchDirectoryItem.Path,\nLocals.ClonedElement->SearchSubDirs= Parameters.Searc"
-PostExpr Line0002 = "hDirectoryItem.SearchSubDirs,\nLocals.ClonedElement->ExcludeHiddenSubdirs= Parameters.SearchDirectoryItem.ExcludeHiddenS"
-PostExpr Line0003 = "ubdirs,\nLocals.ClonedElement->FileExtRestrictions= Parameters.SearchDirectoryItem.FileExtRestrictions,\nLocals.ClonedEl"
-PostExpr Line0004 = "ement->Disabled= Parameters.SearchDirectoryItem.Disabled"
+PostExpr Line0002 = "hDirectoryItem.SearchSubDirs,\nLocals.ClonedElement.AsPropertyObject.Exists(\"ExcludeHiddenSubdirs\", 0) ? (Locals.Clone"
+PostExpr Line0003 = "dElement->ExcludeHiddenSubdirs= Parameters.SearchDirectoryItem.ExcludeHiddenSubdirs) : Nothing,\nLocals.ClonedElement->F"
+PostExpr Line0004 = "ileExtRestrictions= Parameters.SearchDirectoryItem.FileExtRestrictions,\nLocals.ClonedElement->Disabled= Parameters.Sear"
+PostExpr Line0005 = "chDirectoryItem.Disabled"
 
 [DEF, SF.Seq[2].Main[5]]
 %NAME = "Prepare For Insertion"
@@ -1530,6 +1532,12 @@ ReportOptions = "TYPE, ReportOptions"
 ModelPlugin = "TYPE, NI_ModelPlugin"
 ModelPluginConfiguration = "TYPE, NI_ModelPluginConfiguration"
 
+[SF.Seq[3].Parameters.ReportOptions]
+ReportFileSequentialModelExpression = "\"<ClientFileDir>\\\\<ClientFileName>_Report[<FileTime>][<FileDate>]<Unique>.<FileExtension>\""
+ReportFileParallelModelExpression = "\"<ClientFileDir>\\\\<ClientFileName>_Report[<FileTime>][<FileDate>]<Unique>.<FileExtension>\""
+ReportFileBatchModelExpression = "\"<ClientFileDir>\\\\<ClientFileName>_BatchReport[<FileTime>][<FileDate>]<Unique>.<FileExtension>\""
+BatchFileBatchModelExpression = "\"<ClientFileDir>\\\\<ClientFileName>_BatchReport[<FileTime>][<FileDate>]<Unique>.<FileExtension>\""
+
 [SF.Seq[3].Parameters]
 %FLG: ReportOptions = 132
 %FLG: ModelPlugin = 4
@@ -1545,9 +1553,19 @@ RuntimeVariables = "TYPE, NI_ReportGeneratorRuntimeVariables"
 
 [SF.Seq[3].Parameters.ModelPlugin.PluginSpecific.Options]
 IncludeTSExtensionElements = False
+ReportFileSequentialModelExpression = "\"<ClientFileDir>\\\\<ClientFileName>_Report[<FileTime>][<FileDate>]<Unique>.<FileExtension>\""
+ReportFileParallelModelExpression = "\"<ClientFileDir>\\\\<ClientFileName>_Report[<FileTime>][<FileDate>]<Unique>.<FileExtension>\""
+ReportFileBatchModelExpression = "\"<ClientFileDir>\\\\<ClientFileName>_BatchReport[<FileTime>][<FileDate>]<Unique>.<FileExtension>\""
+BatchFileBatchModelExpression = "\"<ClientFileDir>\\\\<ClientFileName>_BatchReport[<FileTime>][<FileDate>]<Unique>.<FileExtension>\""
 
 [SF.Seq[3].Parameters.ModelPlugin.Base]
 DisplayNameExpression = "\"<replace with a string expression which describes an instance of the component>\""
+
+[SF.Seq[3].Parameters.ModelPluginConfiguration.RuntimeVariables.ModelDialogsEnabled]
+SequentialTestUUTsTerminationOption = 0
+
+[SF.Seq[3].Parameters.ModelPluginConfiguration.RuntimeVariables.ModelDialogsEnabled.SequentialTestUUTsTerminationOption]
+%NAME = "Prompt"
 
 [SF.Seq[3]]
 %FLG: Parameters = 4456448
@@ -1672,16 +1690,17 @@ NI_ReportGeneratorPerSocketRuntimeVariables = "NI_ReportGeneratorPerSocketRuntim
 NI_ModelPluginConfiguration = "NI_ModelPluginConfiguration"
 NI_ModelPluginConfigurationRuntimeVariables = "NI_ModelPluginConfigurationRuntimeVariables"
 NI_ModelPluginConfigurationPerSocketRuntimeVariables = "NI_ModelPluginConfigurationPerSocketRuntimeVariables"
+NI_SequentialTestUUTsTerminationOptions = "NI_SequentialTestUUTsTerminationOptions"
 
 [DEF, Path]
 %LOCATION = "StdTypes"
 %ROOT_TYPE = True
 
 [Path]
-%TIMESTAMP = 1449181662
-%VERSION = "14.0.0.274"
-%TYPELASTMOD = "14.0.1.103"
-%MINPRODVER = "14.0.0.0"
+%TIMESTAMP = 1510782311
+%VERSION = "17.0.0.184"
+%TYPELASTMOD = "17.0.0.184"
+%MINPRODVER = "17.0.0.0"
 %TYPE_FLG = 33554436
 
 [DEF, Action]
@@ -1728,17 +1747,17 @@ DefaultNameFormat = "ResStr(\"NI_STEPTYPES\", \"ACTION_DEF_STEP_NAME\")"
 %INSTOVRD: TS = 4456472
 %FLG: Result = 4194304
 %INSTFLG: Result = 4194304
-CodeTemplates Line0001 = "DefaultLabVIEW|DefaultCVI|DefaultVB.NET|DefaultCSharp.NET|DefaultC++.NET|DefaultVC++_Template|DefaultHTB72_Template|Defa"
-CodeTemplates Line0002 = "ultHTB80_Template|Default_Template"
+CodeTemplates Line0001 = "DefaultLabVIEW|DefaultLabVIEWNXG|DefaultCVI|DefaultVB.NET|DefaultCSharp.NET|DefaultC++.NET|DefaultVC++_Template|DefaultH"
+CodeTemplates Line0002 = "TB72_Template|DefaultHTB80_Template|Default_Template"
 %FLG: CodeTemplates = 4194328
 %FLG: BlockStartTypes = 4194328
 %FLG: BlockEndTypes = 4194328
 %FLG: AppliesToBlockStructure = 4194328
 %FLG: CanEncapsulate = 4194328
-%TIMESTAMP = 1393446522
-%VERSION = "14.0.0.1"
-%TYPELASTMOD = "14.0.0.107"
-%MINPRODVER = "14.0.0.0"
+%TIMESTAMP = 1493942380
+%VERSION = "17.0.0.1"
+%TYPELASTMOD = "17.0.0.14"
+%MINPRODVER = "17.0.0.0"
 %TYPE_FLG = 33554446
 
 [Action.Menu]
@@ -1798,10 +1817,10 @@ Common = "TYPE, CommonResults"
 %ROOT_TYPE = True
 
 [StepTypeSubstepsArray]
-%TIMESTAMP = 1449158187
-%VERSION = "14.0.0.274"
-%TYPELASTMOD = "14.0.1.103"
-%MINPRODVER = "14.0.0.0"
+%TIMESTAMP = 1510782311
+%VERSION = "17.0.0.184"
+%TYPELASTMOD = "17.0.0.184"
+%MINPRODVER = "17.0.0.0"
 %FLG = 24
 %TYPE_FLG = 33554436
 %INSTFLG = 4718616
@@ -1823,10 +1842,10 @@ Group = Str
 Category = "\"\""
 ItemName = "\"\""
 SingularItemName = "\"\""
-%TIMESTAMP = 1449158187
-%VERSION = "14.0.0.274"
-%TYPELASTMOD = "14.0.1.103"
-%MINPRODVER = "14.0.0.0"
+%TIMESTAMP = 1510782311
+%VERSION = "17.0.0.184"
+%TYPELASTMOD = "17.0.0.184"
+%MINPRODVER = "17.0.0.0"
 %FLG = 24
 %TYPE_FLG = 33554436
 %INSTFLG = 4718616
@@ -1963,10 +1982,10 @@ CanEditParameterAdditionalResults = True
 %INSTOVRD: Requirements = 7143449
 %INSTOVRD: CustomResults = 5046296
 %INSTOVRD: AdditionalResultsHints = 5046296
-%TIMESTAMP = 1449158187
-%VERSION = "14.0.0.274"
-%TYPELASTMOD = "14.0.1.103"
-%MINPRODVER = "14.0.0.0"
+%TIMESTAMP = 1510782311
+%VERSION = "17.0.0.184"
+%TYPELASTMOD = "17.0.0.184"
+%MINPRODVER = "17.0.0.0"
 %FLG = 24
 %TYPE_FLG = 33554436
 %INSTFLG = 4456472
@@ -2000,10 +2019,10 @@ Occurred = Bool
 %INSTFLG: Msg = 4194304
 %FLG: Occurred = 4194304
 %INSTFLG: Occurred = 4194304
-%TIMESTAMP = 1449158187
-%VERSION = "14.0.0.274"
-%TYPELASTMOD = "14.0.1.103"
-%MINPRODVER = "14.0.0.0"
+%TIMESTAMP = 1510782311
+%VERSION = "17.0.0.184"
+%TYPELASTMOD = "17.0.0.184"
+%MINPRODVER = "17.0.0.0"
 %TYPE_FLG = 33554436
 %EXTDATA = True
 
@@ -2022,6 +2041,10 @@ ClusterMemberLabelName = "code"
 DataVersion = 1
 StructMemberName = "code"
 
+[EXTDATA, Error.Code, BLVCLUSTER]
+DataVersion = 1
+ClusterMemberLabelName = "code"
+
 [Error.Msg]
 %EXTDATA = True
 
@@ -2039,6 +2062,10 @@ ClusterMemberLabelName = "source"
 DataVersion = 1
 StructMemberName = "msg"
 
+[EXTDATA, Error.Msg, BLVCLUSTER]
+DataVersion = 1
+ClusterMemberLabelName = "source"
+
 [Error.Occurred]
 %EXTDATA = True
 
@@ -2053,6 +2080,10 @@ ClusterMemberLabelName = "status"
 [EXTDATA, Error.Occurred, DNSTRUCT]
 DataVersion = 1
 StructMemberName = "occurred"
+
+[EXTDATA, Error.Occurred, BLVCLUSTER]
+DataVersion = 1
+ClusterMemberLabelName = "status"
 
 [EXTDATA, Error, STRUCT]
 AllowStructPassing = True
@@ -2069,14 +2100,18 @@ AllowStructPassing = True
 DataVersion = 1
 StructMemberName = ""
 
+[EXTDATA, Error, BLVCLUSTER]
+AllowClusterPassing = True
+DataVersion = 1
+
 [DEF, CommonResults]
 %LOCATION = "StdTypes"
 %ROOT_TYPE = True
 
 [CommonResults]
-%TIMESTAMP = 1382736029
+%TIMESTAMP = 1441304932
 %VERSION = "3.1.0.100"
-%TYPELASTMOD = "14.0.1.103"
+%TYPELASTMOD = "17.0.0.184"
 %MINPRODVER = "3.1.0.0"
 %FLG = 4194304
 %TYPE_FLG = 33554432
@@ -2124,10 +2159,10 @@ InterfaceType = 2
 %FLG: %EPTYPE = 131072
 
 [AutomationStepAdditions]
-%TIMESTAMP = 1435112635
-%VERSION = "14.0.0.274"
-%TYPELASTMOD = "14.0.1.103"
-%MINPRODVER = "14.0.0.0"
+%TIMESTAMP = 1510778048
+%VERSION = "17.0.0.184"
+%TYPELASTMOD = "17.0.0.184"
+%MINPRODVER = "17.0.0.0"
 %FLG = 24
 %TYPE_FLG = 33554436
 
@@ -2154,10 +2189,10 @@ UserData = Obj
 [AutomationParameter]
 Name = "_notNamed"
 %INSTFLG: UserData = 2097152
-%TIMESTAMP = 1435112635
-%VERSION = "14.0.0.274"
-%TYPELASTMOD = "14.0.1.103"
-%MINPRODVER = "14.0.0.0"
+%TIMESTAMP = 1510778048
+%VERSION = "17.0.0.184"
+%TYPELASTMOD = "17.0.0.184"
+%MINPRODVER = "17.0.0.0"
 %FLG = 24
 %TYPE_FLG = 33554436
 
@@ -2192,10 +2227,10 @@ Path = Str
 %ROOT_TYPE = True
 
 [Expression]
-%TIMESTAMP = 1449181662
-%VERSION = "14.0.0.274"
-%TYPELASTMOD = "14.0.1.103"
-%MINPRODVER = "14.0.0.0"
+%TIMESTAMP = 1510782311
+%VERSION = "17.0.0.184"
+%TYPELASTMOD = "17.0.0.184"
+%MINPRODVER = "17.0.0.0"
 %TYPE_FLG = 33554436
 
 [DEF, NI_CustomResult]
@@ -2214,10 +2249,10 @@ IsAnyType = Bool
 Flags = 8192
 CheckedState = 2
 IsAnyType = True
-%TIMESTAMP = 1449158187
-%VERSION = "14.0.0.274"
-%TYPELASTMOD = "14.0.1.103"
-%MINPRODVER = "14.0.0.0"
+%TIMESTAMP = 1510782311
+%VERSION = "17.0.0.184"
+%TYPELASTMOD = "17.0.0.184"
+%MINPRODVER = "17.0.0.0"
 %FLG = 24
 %TYPE_FLG = 33554436
 
@@ -2239,10 +2274,10 @@ ClassName = Str
 ValueType = 3
 IsObject = True
 Representation = 1
-%TIMESTAMP = 1449158187
-%VERSION = "14.0.0.274"
-%TYPELASTMOD = "14.0.1.103"
-%MINPRODVER = "14.0.0.0"
+%TIMESTAMP = 1510782311
+%VERSION = "17.0.0.184"
+%TYPELASTMOD = "17.0.0.184"
+%MINPRODVER = "17.0.0.0"
 %FLG = 24
 %TYPE_FLG = 33554436
 
@@ -2253,10 +2288,10 @@ UpperBounds = Nums
 %ROOT_TYPE = True
 
 [NI_ArrayDimensions]
-%TIMESTAMP = 1449158187
-%VERSION = "14.0.0.274"
-%TYPELASTMOD = "14.0.1.103"
-%MINPRODVER = "14.0.0.0"
+%TIMESTAMP = 1510782311
+%VERSION = "17.0.0.184"
+%TYPELASTMOD = "17.0.0.184"
+%MINPRODVER = "17.0.0.0"
 %FLG = 24
 %TYPE_FLG = 33554436
 
@@ -2266,10 +2301,10 @@ EditPanels = Strs
 %ROOT_TYPE = True
 
 [StepTypeNIData]
-%TIMESTAMP = 1449158187
-%VERSION = "14.0.0.274"
-%TYPELASTMOD = "14.0.1.103"
-%MINPRODVER = "14.0.0.0"
+%TIMESTAMP = 1510782311
+%VERSION = "17.0.0.184"
+%TYPELASTMOD = "17.0.0.184"
+%MINPRODVER = "17.0.0.0"
 %FLG = 24
 %TYPE_FLG = 33554436
 %INSTFLG = 4718616
@@ -2285,10 +2320,10 @@ CheckedState = Num
 [NI_ActiveXParameterResult]
 Flags = 8192
 CheckedState = 1
-%TIMESTAMP = 1449158187
-%VERSION = "14.0.0.274"
-%TYPELASTMOD = "14.0.1.103"
-%MINPRODVER = "14.0.0.0"
+%TIMESTAMP = 1510777106
+%VERSION = "17.0.0.184"
+%TYPELASTMOD = "17.0.0.184"
+%MINPRODVER = "17.0.0.0"
 %FLG = 24
 %TYPE_FLG = 33554436
 
@@ -2335,18 +2370,18 @@ DefaultNameFormat = "ResStr(\"NI_STEPTYPES\", \"EDIT_DEF_SUBSTEP_NAME\")"
 %FLG: BlockStartTypes = 4194328
 %FLG: BlockEndTypes = 4194328
 %FLG: AppliesToBlockStructure = 4194328
-CodeTemplates Line0001 = "DefaultLabVIEW|DefaultCVI|DefaultVB.NET|DefaultCSharp.NET|DefaultC++.NET|DefaultVC++_Template|DefaultHTB72_Template|Defa"
-CodeTemplates Line0002 = "ultHTB80_Template|Default_Template"
+CodeTemplates Line0001 = "DefaultLabVIEWNXG|DefaultLabVIEW|DefaultCVI|DefaultVB.NET|DefaultCSharp.NET|DefaultC++.NET|DefaultVC++_Template|DefaultH"
+CodeTemplates Line0002 = "TB72_Template|DefaultHTB80_Template|Default_Template"
 %FLG: CodeTemplates = 4194328
 %FLG: AdditionalResultsHints = 4194328
 %INSTFLG: TS = 4456472
 %FLG: Result = 4194304
 %INSTFLG: Result = 4194304
 %FLG: CanEncapsulate = 4194328
-%TIMESTAMP = 1449158187
-%VERSION = "14.0.0.274"
-%TYPELASTMOD = "14.0.1.103"
-%MINPRODVER = "14.0.0.0"
+%TIMESTAMP = 1510782311
+%VERSION = "17.0.0.184"
+%TYPELASTMOD = "17.0.0.184"
+%MINPRODVER = "17.0.0.0"
 %TYPE_FLG = 33554438
 %INSTFLG = 4194304
 %INSTOVRD = 4194304
@@ -2404,10 +2439,10 @@ CheckedState = Num
 [NI_CommonCParameterResult]
 Flags = 8192
 CheckedState = 1
-%TIMESTAMP = 1449158187
-%VERSION = "14.0.0.274"
-%TYPELASTMOD = "14.0.1.103"
-%MINPRODVER = "14.0.0.0"
+%TIMESTAMP = 1510782311
+%VERSION = "17.0.0.184"
+%TYPELASTMOD = "17.0.0.184"
+%MINPRODVER = "17.0.0.0"
 %FLG = 24
 %TYPE_FLG = 33554436
 
@@ -2443,10 +2478,10 @@ StrSize = "1024"
 %INSTOVRD: ResultAct = 5177368
 %INSTOVRD: Flags = 5177368
 %INSTFLG: UserData = 2097152
-%TIMESTAMP = 1435112364
-%VERSION = "14.0.0.274"
-%TYPELASTMOD = "14.0.1.103"
-%MINPRODVER = "14.0.0.0"
+%TIMESTAMP = 1510782910
+%VERSION = "17.0.0.184"
+%TYPELASTMOD = "17.0.0.184"
+%MINPRODVER = "17.0.0.0"
 %FLG = 24
 %TYPE_FLG = 33554436
 
@@ -2489,10 +2524,10 @@ Name = "Return Value"
 Type = 3
 
 [FlexCStepAdditions]
-%TIMESTAMP = 1435112364
-%VERSION = "14.0.0.274"
-%TYPELASTMOD = "14.0.1.103"
-%MINPRODVER = "14.0.0.0"
+%TIMESTAMP = 1510782910
+%VERSION = "17.0.0.184"
+%TYPELASTMOD = "17.0.0.184"
+%MINPRODVER = "17.0.0.0"
 %FLG = 24
 %TYPE_FLG = 33554436
 
@@ -2501,10 +2536,10 @@ Type = 3
 %ROOT_TYPE = True
 
 [NoneStepAdditions]
-%TIMESTAMP = 1435112292
-%VERSION = "14.0.0.274"
-%TYPELASTMOD = "14.0.1.103"
-%MINPRODVER = "14.0.0.0"
+%TIMESTAMP = 1510783073
+%VERSION = "17.0.0.184"
+%TYPELASTMOD = "17.0.0.184"
+%MINPRODVER = "17.0.0.0"
 %FLG = 24
 %TYPE_FLG = 33554436
 
@@ -2558,10 +2593,10 @@ DefaultNameFormat = "ResStr(\"NI_SUBSTEPS\", \"STATEMENT_DEF_STEP_NAME\")"
 %FLG: BlockEndTypes = 4194328
 %FLG: AppliesToBlockStructure = 4194328
 %FLG: CanEncapsulate = 4194328
-%TIMESTAMP = 1383158446
-%VERSION = "14.0.0.0"
-%TYPELASTMOD = "14.0.0.86"
-%MINPRODVER = "14.0.0.0"
+%TIMESTAMP = 1507239553
+%VERSION = "17.0.0.0"
+%TYPELASTMOD = "17.0.0.132"
+%MINPRODVER = "17.0.0.0"
 %TYPE_FLG = 33554446
 
 [DEF, Statement.Substeps]
@@ -2725,18 +2760,18 @@ DefaultNameFormat = "ResStr(\"NI_STEPTYPES\", \"GENERIC_DEF_SUBSTEP_NAME\")"
 %FLG: BlockStartTypes = 4194328
 %FLG: BlockEndTypes = 4194328
 %FLG: AppliesToBlockStructure = 4194328
-CodeTemplates Line0001 = "DefaultLabVIEW|DefaultCVI|DefaultVB.NET|DefaultCSharp.NET|DefaultC++.NET|DefaultVC++_Template|DefaultHTB72_Template|Defa"
-CodeTemplates Line0002 = "ultHTB80_Template|Default_Template"
+CodeTemplates Line0001 = "DefaultLabVIEWNXG|DefaultLabVIEW|DefaultCVI|DefaultVB.NET|DefaultCSharp.NET|DefaultC++.NET|DefaultVC++_Template|DefaultH"
+CodeTemplates Line0002 = "TB72_Template|DefaultHTB80_Template|Default_Template"
 %FLG: CodeTemplates = 4194328
 %FLG: AdditionalResultsHints = 4194328
 %INSTFLG: TS = 4456472
 %FLG: Result = 4194304
 %INSTFLG: Result = 4194304
 %FLG: CanEncapsulate = 4194328
-%TIMESTAMP = 1449158187
-%VERSION = "14.0.0.274"
-%TYPELASTMOD = "14.0.1.103"
-%MINPRODVER = "14.0.0.0"
+%TIMESTAMP = 1510782311
+%VERSION = "17.0.0.184"
+%TYPELASTMOD = "17.0.0.184"
+%MINPRODVER = "17.0.0.0"
 %TYPE_FLG = 33554438
 %INSTFLG = 4194304
 %INSTOVRD = 4194304
@@ -2837,10 +2872,10 @@ AppliesToBlockStructure = True
 %FLG: AdditionalResultsHints = 4194328
 CanEncapsulate = True
 %FLG: CanEncapsulate = 4194328
-%TIMESTAMP = 1383159414
-%VERSION = "14.0.0.0"
-%TYPELASTMOD = "14.0.0.86"
-%MINPRODVER = "14.0.0.0"
+%TIMESTAMP = 1507239799
+%VERSION = "17.0.0.0"
+%TYPELASTMOD = "17.0.0.132"
+%MINPRODVER = "17.0.0.0"
 %TYPE_FLG = 33554438
 %INSTFLG = 67108864
 
@@ -3090,10 +3125,10 @@ AppliesToBlockStructure = True
 %FLG: AppliesToBlockStructure = 4194328
 %INSTFLG: SuppressNextResult = 8
 %FLG: CanEncapsulate = 4194328
-%TIMESTAMP = 1383159552
-%VERSION = "14.0.0.0"
-%TYPELASTMOD = "14.0.0.86"
-%MINPRODVER = "14.0.0.0"
+%TIMESTAMP = 1507239815
+%VERSION = "17.0.0.0"
+%TYPELASTMOD = "17.0.0.132"
+%MINPRODVER = "17.0.0.0"
 %TYPE_FLG = 33554438
 %INSTFLG = 67108864
 
@@ -3257,10 +3292,10 @@ BlockEndTypes = "NI_Flow_End"
 AppliesToBlockStructure = True
 %FLG: AppliesToBlockStructure = 4194328
 %FLG: CanEncapsulate = 4194328
-%TIMESTAMP = 1383159445
-%VERSION = "14.0.0.0"
-%TYPELASTMOD = "14.0.0.86"
-%MINPRODVER = "14.0.0.0"
+%TIMESTAMP = 1507239833
+%VERSION = "17.0.0.0"
+%TYPELASTMOD = "17.0.0.132"
+%MINPRODVER = "17.0.0.0"
 %TYPE_FLG = 33554438
 %INSTFLG = 67108864
 
@@ -3411,6 +3446,9 @@ AdditionalResultsHints = Objs
 %FLG: AdditionalResultsHints = 524288
 CanEncapsulate = Bool
 %FLG: CanEncapsulate = 524288
+IterationType = Num
+FieldMappingExpr = "TYPE, Expression"
+AutoCloseAtEndofFile = Bool
 %ROOT_TYPE = True
 
 [NI_Flow_ForEach]
@@ -3444,10 +3482,10 @@ AppliesToBlockStructure = True
 %FLG: AdditionalResultsHints = 4194328
 CanEncapsulate = True
 %FLG: CanEncapsulate = 4194328
-%TIMESTAMP = 1383159474
-%VERSION = "14.0.0.0"
-%TYPELASTMOD = "14.0.0.86"
-%MINPRODVER = "14.0.0.0"
+%TIMESTAMP = 1508976236
+%VERSION = "17.0.0.4"
+%TYPELASTMOD = "17.0.0.163"
+%MINPRODVER = "17.0.0.0"
 %TYPE_FLG = 33554438
 %INSTFLG = 67108864
 
@@ -3686,10 +3724,10 @@ CustomThreadAffinity = "RunState.Engine.Is64Bit? -1ui64 : -1"
 ExecModelOpt = 1
 ExecBreakOnEntryExpr = "False"
 Trace = "Don't Change"
-%TIMESTAMP = 1435112287
-%VERSION = "14.0.0.274"
-%TYPELASTMOD = "14.0.1.103"
-%MINPRODVER = "14.0.0.0"
+%TIMESTAMP = 1510782708
+%VERSION = "17.0.0.184"
+%TYPELASTMOD = "17.0.0.184"
+%MINPRODVER = "17.0.0.0"
 %FLG = 24
 %TYPE_FLG = 33554436
 
@@ -3741,10 +3779,10 @@ DefaultNameFormat = "ResStr(\"NI_STEPTYPES\", \"SC_DEF_STEP_NAME\")"
 %FLG: BlockEndTypes = 4194328
 %FLG: AppliesToBlockStructure = 4194328
 %FLG: CanEncapsulate = 4194328
-%TIMESTAMP = 1383158604
-%VERSION = "14.0.0.0"
-%TYPELASTMOD = "14.0.0.86"
-%MINPRODVER = "14.0.0.0"
+%TIMESTAMP = 1507239564
+%VERSION = "17.0.0.0"
+%TYPELASTMOD = "17.0.0.132"
+%MINPRODVER = "17.0.0.0"
 %TYPE_FLG = 33554438
 
 [SequenceCall.Menu]
@@ -3812,10 +3850,10 @@ UserData = Obj
 UseDef = True
 Flags = 4
 %INSTFLG: UserData = 2097152
-%TIMESTAMP = 1449158187
-%VERSION = "14.0.0.274"
-%TYPELASTMOD = "14.0.1.103"
-%MINPRODVER = "14.0.0.0"
+%TIMESTAMP = 1510782311
+%VERSION = "17.0.0.184"
+%TYPELASTMOD = "17.0.0.184"
+%MINPRODVER = "17.0.0.0"
 %FLG = 24
 %TYPE_FLG = 33554436
 
@@ -3836,10 +3874,10 @@ CheckedState = Num
 [NI_SequenceParameterResult]
 Flags = 8192
 CheckedState = 1
-%TIMESTAMP = 1449158187
-%VERSION = "14.0.0.274"
-%TYPELASTMOD = "14.0.1.103"
-%MINPRODVER = "14.0.0.0"
+%TIMESTAMP = 1510782311
+%VERSION = "17.0.0.184"
+%TYPELASTMOD = "17.0.0.184"
+%MINPRODVER = "17.0.0.0"
 %FLG = 24
 %TYPE_FLG = 33554436
 
@@ -3896,10 +3934,10 @@ DefaultNameFormat = "ResStr(\"NI_SUBSTEPS\", \"GOTO_DEF_STEP_NAME\")"
 %FLG: BlockEndTypes = 4194328
 %FLG: AppliesToBlockStructure = 4194328
 %FLG: CanEncapsulate = 4194328
-%TIMESTAMP = 1383158472
-%VERSION = "14.0.0.0"
-%TYPELASTMOD = "14.0.0.86"
-%MINPRODVER = "14.0.0.0"
+%TIMESTAMP = 1507239530
+%VERSION = "17.0.0.0"
+%TYPELASTMOD = "17.0.0.132"
+%MINPRODVER = "17.0.0.0"
 %TYPE_FLG = 33554446
 
 [DEF, Goto.Substeps]
@@ -4097,6 +4135,7 @@ ATMLStylesheetMRU = Strs
 StoreStylesheetAbsolutePath = Bool
 UseOnTheFlyReporting = Bool
 PurgeOnTheFlyResults = Bool
+GeneratePDFReport = Bool
 IncludeStepResultComments = Bool
 UseLocalizedDecimalPoint = Bool
 ReportStyle = Str
@@ -4142,17 +4181,17 @@ RelStylesheetPath = "horizontal.xsl"
 %HI: ATMLStylesheetMRU = [2]
 StoreStylesheetAbsolutePath = True
 IncludeStepResultComments = True
-ReportFileSequentialModelExpression = "\"<ClientFileDir>\\\\<ClientFileName>_Report[<FileTime>][<FileDate>]<Unique>.<FileExtension>\""
-ReportFileParallelModelExpression = "\"<ClientFileDir>\\\\<ClientFileName>_Report[<FileTime>][<FileDate>]<Unique>.<FileExtension>\""
-ReportFileBatchModelExpression = "\"<ClientFileDir>\\\\<ClientFileName>_BatchReport[<FileTime>][<FileDate>]<Unique>.<FileExtension>\""
-BatchFileBatchModelExpression = "\"<ClientFileDir>\\\\<ClientFileName>_BatchReport[<FileTime>][<FileDate>]<Unique>.<FileExtension>\""
+ReportFileSequentialModelExpression = "\"$(ClientFileDir)\\\\$(ClientFileName)_Report[$(FileTime)][$(FileDate)]$(Unique).$(FileExtension)\""
+ReportFileParallelModelExpression = "\"$(ClientFileDir)\\\\$(ClientFileName)_Report[$(FileTime)][$(FileDate)]$(Unique).$(FileExtension)\""
+ReportFileBatchModelExpression = "\"$(ClientFileDir)\\\\$(ClientFileName)_BatchReport[$(FileTime)][$(FileDate)]$(Unique).$(FileExtension)\""
+BatchFileBatchModelExpression = "\"$(ClientFileDir)\\\\$(ClientFileName)_BatchReport[$(FileTime)][$(FileDate)]$(Unique).$(FileExtension)\""
 CheckIfMacroListIsUnchanged = True
 %HI: ATML5StylesheetMRU = [4]
 %HI: ATML6StylesheetMRU = [4]
-%TIMESTAMP = 1368084365
-%VERSION = "5.1.0.0"
-%TYPELASTMOD = "5.1.0.189"
-%MINPRODVER = "5.1.0.0"
+%TIMESTAMP = 1598503772
+%VERSION = "20.0.0.166"
+%TYPELASTMOD = "20.0.0.165"
+%MINPRODVER = "20.0.0.0"
 %TYPE_FLG = 33554440
 
 [ReportOptions.DisableReportGeneration]
@@ -4268,9 +4307,11 @@ TestResultsSchemaPath = Str
 
 [NI_ATMLReportOptions]
 AddReportText = True
-%TIMESTAMP = 1327900810
-%VERSION = "5.0.0.2"
-%TYPELASTMOD = "5.0.0.115"
+%TIMESTAMP = 1598503771
+%VERSION = "20.0.0.166"
+%TYPELASTMOD = "20.0.0.165"
+%MINPRODVER = "20.0.0.0"
+%TYPE_FLG = 33554432
 
 [DEF, NI_ModelPlugin]
 %LOCATION = "UserTypes"
@@ -4299,9 +4340,10 @@ PerSocket = Objs
 [NI_ModelPlugin]
 %INSTFLG: PluginSpecific = 2097152
 %INSTFLG: CategorySpecific = 2097152
-%TIMESTAMP = 1337990561
-%VERSION = "5.0.0.46"
-%TYPELASTMOD = "5.0.0.223"
+%TIMESTAMP = 1598503771
+%VERSION = "20.0.0.166"
+%TYPELASTMOD = "20.0.0.165"
+%MINPRODVER = "20.0.0.0"
 %TYPE_FLG = 33554432
 
 [DEF, NI_ModelPlugin.CategorySpecific]
@@ -4309,6 +4351,7 @@ Name = Str
 Settings = "TYPE, NI_ResultProcessorCategorySettings"
 
 [DEF, NI_ModelPlugin.Base]
+AutoAddToConfigurations = Bool
 Enabled = Bool
 DisplayNameExpression = "TYPE, Expression"
 NewThread = Bool
@@ -4357,7 +4400,7 @@ PerSocket = Objs
 %EPTYPE = "TYPE, NI_ModelPluginPerSocketRuntimeVariables"
 
 [NI_ModelPluginRuntimeVariables]
-%TIMESTAMP = 1337990608
+%TIMESTAMP = 1490852825
 %VERSION = "5.0.0.41"
 %TYPELASTMOD = "5.0.0.223"
 %TYPE_FLG = 33554432
@@ -4368,7 +4411,7 @@ Thread = Ref
 %ROOT_TYPE = True
 
 [NI_ModelPluginPerSocketRuntimeVariables]
-%TIMESTAMP = 1334847400
+%TIMESTAMP = 1490852825
 %VERSION = "5.0.0.37"
 %TYPELASTMOD = "5.0.0.186"
 %TYPE_FLG = 33554432
@@ -4380,7 +4423,7 @@ DisplayReport = Bool
 %ROOT_TYPE = True
 
 [NI_ResultProcessorCategorySettings]
-%TIMESTAMP = 1318951360
+%TIMESTAMP = 1490852826
 %VERSION = "5.0.0.25"
 %TYPELASTMOD = "5.0.0.25"
 %TYPE_FLG = 33554432
@@ -4390,7 +4433,7 @@ DisplayReport = Bool
 %ROOT_TYPE = True
 
 [NI_ReportGeneratorAdditionalOptions]
-%TIMESTAMP = 1342463241
+%TIMESTAMP = 1490852826
 %VERSION = "5.0.0.25"
 %TYPELASTMOD = "5.1.0.2"
 %TYPE_FLG = 33554432
@@ -4435,9 +4478,9 @@ OTFExecutionStartTime = Num
 %EPTYPE = "TYPE, NI_ReportGeneratorPerSocketRuntimeVariables"
 
 [NI_ReportGeneratorRuntimeVariables]
-%TIMESTAMP = 1337729394
-%VERSION = "5.0.0.40"
-%TYPELASTMOD = "5.0.0.221"
+%TIMESTAMP = 1538977196
+%VERSION = "5.0.0.41"
+%TYPELASTMOD = "19.0.0.12"
 %TYPE_FLG = 33554432
 
 [DEF, NI_ReportGeneratorPerSocketRuntimeVariables]
@@ -4449,12 +4492,14 @@ ATMLFixedFooter = Str
 UUTLoopIndexforCachedATMLFixedFooter = Num
 XMLFixedHeader = Str
 UUTLoopIndexforCachedXMLFixedHeader = Num
+SystemLinkReportId = Str
 %ROOT_TYPE = True
 
 [NI_ReportGeneratorPerSocketRuntimeVariables]
-%TIMESTAMP = 1337705019
-%VERSION = "5.0.0.27"
-%TYPELASTMOD = "5.0.0.215"
+%TIMESTAMP = 1598503772
+%VERSION = "20.0.0.166"
+%TYPELASTMOD = "20.0.0.165"
+%MINPRODVER = "20.0.0.0"
 %TYPE_FLG = 33554432
 
 [DEF, NI_ModelPluginConfiguration]
@@ -4490,6 +4535,12 @@ Settings = "TYPE, NI_ResultProcessorCategorySettings"
 [NI_ModelPluginConfiguration.Plugins.%EPTYPE.Base]
 DisplayNameExpression = "\"<replace with a string expression which describes an instance of the component>\""
 
+[NI_ModelPluginConfiguration.RuntimeVariables.ModelDialogsEnabled]
+SequentialTestUUTsTerminationOption = 0
+
+[NI_ModelPluginConfiguration.RuntimeVariables.ModelDialogsEnabled.SequentialTestUUTsTerminationOption]
+%NAME = "Prompt"
+
 [DEF, NI_ModelPluginConfiguration.OTF]
 PostResultsCallbackInterval = Num
 MaximumResultsPerPostResultsCallback = Num
@@ -4499,9 +4550,10 @@ PostResultsCallbackInterval = -1.5
 MaximumResultsPerPostResultsCallback = 500
 
 [NI_ModelPluginConfiguration]
-%TIMESTAMP = 1337990563
-%VERSION = "5.0.0.55"
-%TYPELASTMOD = "5.0.0.223"
+%TIMESTAMP = 1598503771
+%VERSION = "20.0.0.166"
+%TYPELASTMOD = "20.0.0.165"
+%MINPRODVER = "20.0.0.0"
 %TYPE_FLG = 33554432
 
 [DEF, NI_ModelPluginConfigurationRuntimeVariables]
@@ -4538,6 +4590,7 @@ BatchModelShowStatus = Bool
 ParallelModelUUTInfoDialog = Bool
 SequentialShowSerialNumber = Bool
 SequentialShowStatus = Bool
+SequentialTestUUTsTerminationOption = "TYPE, NI_SequentialTestUUTsTerminationOptions"
 
 [NI_ModelPluginConfigurationRuntimeVariables.ModelDialogsEnabled]
 BatchModelGetNextUUTs = True
@@ -4545,14 +4598,19 @@ BatchModelShowStatus = True
 ParallelModelUUTInfoDialog = True
 SequentialShowSerialNumber = True
 SequentialShowStatus = True
+SequentialTestUUTsTerminationOption = 0
+
+[NI_ModelPluginConfigurationRuntimeVariables.ModelDialogsEnabled.SequentialTestUUTsTerminationOption]
+%NAME = "Prompt"
 
 [DEF, NI_ModelPluginConfigurationRuntimeVariables.PerSocket]
 %EPTYPE = "TYPE, NI_ModelPluginConfigurationPerSocketRuntimeVariables"
 
 [NI_ModelPluginConfigurationRuntimeVariables]
-%TIMESTAMP = 1335193781
-%VERSION = "5.0.0.51"
-%TYPELASTMOD = "5.0.0.190"
+%TIMESTAMP = 1598503771
+%VERSION = "20.0.0.166"
+%TYPELASTMOD = "20.0.0.165"
+%MINPRODVER = "20.0.0.0"
 %TYPE_FLG = 33554432
 
 [DEF, NI_ModelPluginConfigurationPerSocketRuntimeVariables]
@@ -4562,8 +4620,24 @@ Execution = Ref
 %ROOT_TYPE = True
 
 [NI_ModelPluginConfigurationPerSocketRuntimeVariables]
-%TIMESTAMP = 1335190369
+%TIMESTAMP = 1490852826
 %VERSION = "5.0.0.26"
 %TYPELASTMOD = "5.0.0.190"
 %TYPE_FLG = 33554432
+
+[DEF, NI_SequentialTestUUTsTerminationOptions]
+%LOCATION = "UserTypes"
+%ROOT_TYPE = True
+
+[%OBJROOT]
+NI_SequentialTestUUTsTerminationOptions = 0
+
+[NI_SequentialTestUUTsTerminationOptions]
+%NAME = "Prompt"
+%TIMESTAMP = 1507658371
+%VERSION = "17.0.0.0"
+%TYPELASTMOD = "17.0.0.132"
+"Prompt" = 0
+"NextUUT" = 1
+"Terminate" = 2
 

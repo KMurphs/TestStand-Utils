@@ -1,0 +1,11 @@
+<PropertyGroup name='Group 1' id='84b4b7df-16da-4f63-b4ed-e0ac8c8b3d75' description='Description for Group 1'>
+<Category>,<PropertyLookup>,<Value>
+{FileGlobals},Updates {Container [0] .. [2]},Lookup {String},Search {String},Replace {String},SeqFile {String}
+
+{FileGlobals},Updates[0],ViCall.ViPath,C:\EtionProjects\CheetahNav\GitLAB\d-level-common\hardware-abstraction-layer\InstrumentsPluginInterfaces\ParentsInterfaces\BarcodeScannerPluginInterface\ID.vi,C:\EtionProjects\CheetahNav\GitLAB\d-level-common\hardware-abstraction-layer\InstrumentsPluginInterfaces\ParentsInterfaces\DCLoadPluginInterface\ID.vi,somewhere
+
+{FileGlobals},Updates[1],ViCall.ViPath,C:\EtionProjects\CheetahNav\GitLAB\d-level-common\hardware-abstraction-layer\InstrumentsPluginInterfaces\ParentsInterfaces\BarcodeScannerPluginInterface\ID.vi,C:\EtionProjects\CheetahNav\GitLAB\d-level-common\hardware-abstraction-layer\InstrumentsPluginInterfaces\ParentsInterfaces\DCLoadPluginInterface\ID.vi,somewhere
+
+{FileGlobals},Updates[2],ViCall.ViPath,C:\EtionProjects\CheetahNav\GitLAB\d-level-common\hardware-abstraction-layer\InstrumentsPluginInterfaces\ParentsInterfaces\BarcodeScannerPluginInterface\ID.vi,C:\EtionProjects\CheetahNav\GitLAB\d-level-common\hardware-abstraction-layer\InstrumentsPluginInterfaces\ParentsInterfaces\DCLoadPluginInterface\ID.vi,somewhere
+
+<PropertyGroup>

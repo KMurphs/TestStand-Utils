@@ -1,0 +1,6 @@
+The following compatibility problems were found. 
+Original Sequence File Version : 20.0.0.0. 
+
+The named type 'NI_SequentialTestUUTsTerminationOptions' is an Enumeration value type.  The prior version of TestStand does not support Enumerations, so it has been converted to a Number.  By default, the Number in the prior version will have all adapter related struct passing settings disabled.
+
+NOTE:  Adapter steps taking arrays of enumerations as parameters will fail in the prior version of TestStand because only arrays of plain numbers (that are not named types) are supported.

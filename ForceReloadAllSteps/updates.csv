@@ -1,0 +1,10 @@
+<PropertyGroup name='Group 1' id='84b4b7df-16da-4f63-b4ed-e0ac8c8b3d75' description='Description for Group 1'>
+<Category>,<PropertyLookup>,<Value>
+{FileGlobals},FileUpdates {Container [0] .. [0]},SeqFilePath {String}
+
+
+{FileGlobals},FileUpdates[0],C:\Users\stephane.kibonge\Downloads\Sequence File 5.seq
+{FileGlobals},FileUpdates[0].StepUpdates {Container [0] .. [0]},Lookup {String},Search {String},Replace {String}
+{FileGlobals},FileUpdates[0].StepUpdates[0],ViCall.ViPath,C:\EtionProjects\CheetahNav\GitLAB\d-level-common\hardware-abstraction-layer\InstrumentsPluginInterfaces\ParentsInterfaces\BarcodeScannerPluginInterface\ID.vi,C:\EtionProjects\CheetahNav\GitLAB\d-level-common\hardware-abstraction-layer\InstrumentsPluginInterfaces\ParentsInterfaces\DCLoadPluginInterface\ID.vi
+
+<PropertyGroup>
