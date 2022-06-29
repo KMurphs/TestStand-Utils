@@ -1,0 +1,1 @@
+https://forums.ni.com/t5/Example-Code/Customizing-the-TestStand-Login-amp-Logout-Procedure/ta-p/3619840?profile.language=en

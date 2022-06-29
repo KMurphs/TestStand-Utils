@@ -1,0 +1,215 @@
+Dependency Tree Report
+Note: 
+	- This report recursively builds up the tree of dependencies of the selected Sequence File. 
+	- Each '[SEQ]' entry represent a Sequence Call and is followed by the dependencies of the target Sequence
+	- A '[VI]' entry represent a call to a LabVIEW VI
+	- A '[DLL]' entry represent a call to a DLL (C, C++, CVI)
+	- A '[NET]' entry represent a call to a .NET Assembly
+	- A '[AUT]' entry represent a call to an ActiveX Resource
+	- The Number at the beginning of each line indicates the level of recursion with respect to the selected Sequence File
+	- Finally, also note that the script relies on the Search Directories to find dependencies. 
+	- If the project being explored has a worskpace file, it must be opened before running the script to add the Worspace File Directory to the Search Directories
+	- Be on the Look out for entries that end with   'Module Not Found in Current TestStand Search Directories List'  
+
+
+
+  -  [0][SEQ][Root]	C:\EtionProjects\CheetahNav\GitLAB\d-level-clients\lru-tester\lru-test-sequence.seq	[MainSequence]
+  -  ,[1],[VI],        [Unpack UUT Data from Process Model],Statement
+  -  ,[1],[VI],        [Get LRU Devices],Statement
+  -  ,[1],[VI],        [If],NI_Flow_If
+  -  ,[1],[VI],        [Wire Up],MessagePopup
+  -  ,[1],[VI],        [Power Bring Up - On Fail, abort],SequenceCall
+  -  ,[2],[VI],                [If],NI_Flow_If
+  -  ,[2],[VI],                [Route PSU Power To MDU],Action
+  -  ,[2],[VI],                [Else],NI_Flow_Else
+  -  ,[2],[VI],                [Reset TFR],Action
+  -  ,[2],[VI],                [End],NI_Flow_End
+  -  ,[2],[VI],                [Wait],NI_Wait
+  -  ,[2],[VI],                [Switch On Power (Low Voltage)],Action
+  -  ,[2],[VI],                [Let Power Settle],NI_Wait
+  -  ,[2],[VI],                [Measure Low Supply],NI_MultipleNumericLimitTest
+  -  ,[2],[VI],                [Switch On Power (Normal Voltage)],Action
+  -  ,[2],[VI],                [Let Power Settle],NI_Wait
+  -  ,[2],[VI],                [Measure High Supply],NI_MultipleNumericLimitTest
+  -  ,[1],[VI],        [MDU Supplies Test],SequenceCall
+  -  ,[2],[VI],                [Setup Power Supply],Action
+  -  ,[2],[VI],                [Statement],Statement
+  -  ,[2],[VI],                [+12V Slave Supply on DDU Connector: Normal Load],NI_MultipleNumericLimitTest
+  -  ,[2],[VI],                [+12V INS Supply on IMU Connector: Normal Load],NI_MultipleNumericLimitTest
+  -  ,[2],[VI],                [+12V INS Supply on SENSE Connector: Normal Load],NI_MultipleNumericLimitTest
+  -  ,[2],[VI],                [Reset TFR],Action
+  -  ,[2],[VI],                [Reinstate Normal Power Levels and Safety - On Fail, abort],SequenceCall
+  -  ,[3],[VI],                        [If],NI_Flow_If
+  -  ,[3],[VI],                        [Route PSU Power To MDU],Action
+  -  ,[3],[VI],                        [Else],NI_Flow_Else
+  -  ,[3],[VI],                        [Reset TFR],Action
+  -  ,[3],[VI],                        [End],NI_Flow_End
+  -  ,[3],[VI],                        [Wait],NI_Wait
+  -  ,[3],[VI],                        [Switch On Power (Low Voltage)],Action
+  -  ,[3],[VI],                        [Let Power Settle],NI_Wait
+  -  ,[3],[VI],                        [Measure Low Supply],NI_MultipleNumericLimitTest
+  -  ,[3],[VI],                        [Switch On Power (Normal Voltage)],Action
+  -  ,[3],[VI],                        [Let Power Settle],NI_Wait
+  -  ,[3],[VI],                        [Measure High Supply],NI_MultipleNumericLimitTest
+  -  ,[1],[VI],        [UUT Bring Up - On Fail, abort],SequenceCall
+  -  ,[2],[VI],                [Boot In Maintenance Mode],MessagePopup
+  -  ,[2],[VI],                [Let UUT Wake Up],NI_Wait
+  -  ,[1],[VI],        [Remote Tests],SequenceCall
+  -  ,[2],[VI],                [Start Websocket Session ],NI_LV_RunVIAsynchronously
+  -  ,[2],[VI],                [Starting Websocket Session],NI_Wait
+  -  ,[2],[VI],                [Did Websocket Start?],PassFailTest
+  -  ,[2],[VI],                [Let UUT Wake Up],NI_Wait
+  -  ,[2],[VI],                [Probe Device Status],Action
+  -  ,[2],[VI],                [Is Device Online?],PassFailTest
+  -  ,[2],[VI],                [Get Host Comports],Action
+  -  ,[2],[VI],                [Get Last Known DDU Loopback Comport From File],Action
+  -  ,[2],[VI],                [Get Last Known INS Loopback Comport From File],Action
+  -  ,[2],[VI],                [User / Manual Tests],Label
+  -  ,[2],[VI],                [Test LCD Pixels],PassFailTest
+  -  ,[2],[VI],                [Test LCD Pattern],PassFailTest
+  -  ,[2],[VI],                [Test LCD Touch],PassFailTest
+  -  ,[2],[VI],                [Automated Tests],Label
+  -  ,[2],[VI],                [Test Keyboard],PassFailTest
+  -  ,[2],[VI],                [Test USB],PassFailTest
+  -  ,[2],[VI],                [LED and ALS Tests],Label
+  -  ,[2],[VI],                [Preset HID Led ON],Action
+  -  ,[2],[VI],                [Preset HID Led - Response],PassFailTest
+  -  ,[2],[VI],                [Enforce HID Led Off],Action
+  -  ,[2],[VI],                [Enforce HID Led - Response],PassFailTest
+  -  ,[2],[VI],                [Set HID Led Off],Action
+  -  ,[2],[VI],                [Set HID Led - Response],PassFailTest
+  -  ,[2],[VI],                [Wait],NI_Wait
+  -  ,[2],[VI],                [Get Lux Value],Action
+  -  ,[2],[VI],                [Get Lux Value - Response  (Exp Off)],PassFailTest
+  -  ,[2],[VI],                [Test Lux Value  (Exp Off)],NumericLimitTest
+  -  ,[2],[VI],                [Set HID Led On],Action
+  -  ,[2],[VI],                [Set HID Led - Response],PassFailTest
+  -  ,[2],[VI],                [Wait],NI_Wait
+  -  ,[2],[VI],                [Get Lux Value ],Action
+  -  ,[2],[VI],                [Get Lux Value - Response  (Exp On)],PassFailTest
+  -  ,[2],[VI],                [Test Lux Value  (Exp On)],NumericLimitTest
+  -  ,[2],[VI],                [Test Lux Delta],NumericLimitTest
+  -  ,[2],[VI],                [Backlight Tests],Label
+  -  ,[2],[VI],                [For],NI_Flow_For
+  -  ,[2],[VI],                [Set Backlight Level],Action
+  -  ,[2],[VI],                [Set Backlight Level - Response ],PassFailTest
+  -  ,[2],[VI],                [Stop Backlight Test],Action
+  -  ,[2],[VI],                [Stop Backlight Level - Response ],PassFailTest
+  -  ,[2],[VI],                [Wait],NI_Wait
+  -  ,[2],[VI],                [Measure Consumption],NI_MultipleNumericLimitTest
+  -  ,[2],[VI],                [Evaluate Loop Passes],PassFailTest
+  -  ,[2],[VI],                [End],NI_Flow_End
+  -  ,[2],[VI],                [Overall Comms Results],PassFailTest
+  -  ,[2],[VI],                [Serial Port Tests],Label
+  -  ,[2],[VI],                [Test RS422 Port on DDU Connector],PassFailTest
+  -  ,[2],[VI],                [Test RS422 Port on INS Connector],PassFailTest
+  -  ,[2],[VI],                [Axle SensorTests],Label
+  -  ,[2],[VI],                [Axle Line A Failure - High],NI_MultipleNumericLimitTest
+  -  ,[2],[VI],                [Axle Line A Failure - Low],NI_MultipleNumericLimitTest
+  -  ,[2],[VI],                [Axle Line B Failure - High],NI_MultipleNumericLimitTest
+  -  ,[2],[VI],                [Axle Line B Failure - Low],NI_MultipleNumericLimitTest
+  -  ,[2],[VI],                [Save as Last Known DDU Loopback Comport],Action
+  -  ,[2],[VI],                [Save as Last Known INS Loopback Comport],Action
+  -  ,[2],[VI],                [Stop Websocket Session: Anchor],Label
+  -  ,[2],[VI],                [Stop Websocket Session],Action
+  -  ,[2],[VI],                [Stopping Websocket Session],NI_Wait
+  -  ,[1],[VI],        [Finalize Device Setup],SequenceCall
+  -  ,[2],[VI],                [Start Websocket Session ],NI_LV_RunVIAsynchronously
+  -  ,[2],[VI],                [Starting Websocket Session],NI_Wait
+  -  ,[2],[VI],                [Did Websocket Start?],PassFailTest
+  -  ,[2],[VI],                [Let UUT Wake Up],NI_Wait
+  -  ,[2],[VI],                [Probe Device Status],Action
+  -  ,[2],[VI],                [Is Device Online?],PassFailTest
+  -  ,[2],[VI],                [Compare eLabel],Action
+  -  ,[2],[VI],                [Compare eLabel - Response],PassFailTest
+  -  ,[2],[VI],                [Compare eLabel - Is Different],NumericLimitTest
+  -  ,[2],[VI],                [Gather eLabel],Action
+  -  ,[2],[VI],                [Gather eLabel - Response],PassFailTest
+  -  ,[2],[VI],                [Gather eLabel - Data],NumericLimitTest
+  -  ,[2],[VI],                [Request DoM],Action
+  -  ,[2],[VI],                [Merge with eLabel],Action
+  -  ,[2],[VI],                [Write eLabel],Action
+  -  ,[2],[VI],                [Write eLabel - Response],PassFailTest
+  -  ,[2],[VI],                [Verify eLabel],Action
+  -  ,[2],[VI],                [Verify eLabel - Response],PassFailTest
+  -  ,[2],[VI],                [Verify eLabel - Data],NumericLimitTest
+  -  ,[2],[VI],                [Update Host Name],Action
+  -  ,[2],[VI],                [Update Host Name - Response],PassFailTest
+  -  ,[2],[VI],                [Reboot Device],Action
+  -  ,[2],[VI],                [Reboot Device - Response],PassFailTest
+  -  ,[2],[VI],                [Is MDU Online?],CallExecutable
+  -  ,[2],[VI],                [Stop Websocket Session: Anchor],Label
+  -  ,[2],[VI],                [Stop Websocket Session],Action
+  -  ,[2],[VI],                [Stopping Websocket Session],NI_Wait
+  -  ,[1],[VI],        [Else If],NI_Flow_ElseIf
+  -  ,[1],[VI],        [Wire Up],MessagePopup
+  -  ,[1],[VI],        [Power Bring Up - On Fail, abort],SequenceCall
+  -  ,[2],[VI],                [Reset TFR],Action
+  -  ,[2],[VI],                [If],NI_Flow_If
+  -  ,[2],[VI],                [Route PSU Power To DDU 12V],Action
+  -  ,[2],[VI],                [Else],NI_Flow_Else
+  -  ,[2],[VI],                [Reset SWM],Action
+  -  ,[2],[VI],                [End],NI_Flow_End
+  -  ,[2],[VI],                [Wait],NI_Wait
+  -  ,[2],[VI],                [Switch On Power (Low Voltage)],Action
+  -  ,[2],[VI],                [Let Power Settle],NI_Wait
+  -  ,[2],[VI],                [Measure Low Supply],NI_MultipleNumericLimitTest
+  -  ,[2],[VI],                [Switch On Power (Normal Voltage)],Action
+  -  ,[2],[VI],                [Let Power Settle],NI_Wait
+  -  ,[2],[VI],                [Measure High Supply],NI_MultipleNumericLimitTest
+  -  ,[1],[VI],        [UUT Bring Up - On Fail, abort],SequenceCall
+  -  ,[2],[VI],                [Let UUT Wake Up],NI_Wait
+  -  ,[1],[VI],        [Inspection Tests],SequenceCall
+  -  ,[2],[VI],                [Inspect UUT],MessagePopup
+  -  ,[1],[VI],        [Remote Tests],SequenceCall
+  -  ,[2],[VI],                [Get Host Comports],Action
+  -  ,[2],[VI],                [Get Last Known DDU Comport From File],Action
+  -  ,[2],[VI],                [Find DDU UUT],PassFailTest
+  -  ,[2],[VI],                [For],NI_Flow_For
+  -  ,[2],[VI],                [Get JSON String],Action
+  -  ,[2],[VI],                [Test RS422 Port on Slave Connector],PassFailTest
+  -  ,[2],[VI],                [Wait],NI_Wait
+  -  ,[2],[VI],                [Measure Consumption],NI_MultipleNumericLimitTest
+  -  ,[2],[VI],                [Evaluate Loop Passes],PassFailTest
+  -  ,[2],[VI],                [End],NI_Flow_End
+  -  ,[2],[VI],                [Overall Comms Results],PassFailTest
+  -  ,[2],[VI],                [Save as Last Known DDU Comport],Action
+  -  ,[1],[VI],        [Else If],NI_Flow_ElseIf
+  -  ,[1],[VI],        [Wire Up],MessagePopup
+  -  ,[1],[VI],        [Power Bring Up - On Fail, abort],SequenceCall
+  -  ,[2],[VI],                [Setup Power Supply],Action
+  -  ,[2],[VI],                [Reset TFR],Action
+  -  ,[2],[VI],                [If],NI_Flow_If
+  -  ,[2],[VI],                [Route PSU Power To DDU PoE],Action
+  -  ,[2],[VI],                [Else],NI_Flow_Else
+  -  ,[2],[VI],                [Reset SWM],Action
+  -  ,[2],[VI],                [End],NI_Flow_End
+  -  ,[2],[VI],                [Wait],NI_Wait
+  -  ,[2],[VI],                [Switch On Power (Normal Voltage)],Action
+  -  ,[2],[VI],                [Let Power Settle],NI_Wait
+  -  ,[2],[VI],                [Measure High Supply],NI_MultipleNumericLimitTest
+  -  ,[1],[VI],        [UUT Bring Up - On Fail, abort],SequenceCall
+  -  ,[2],[VI],                [Let UUT Wake Up],NI_Wait
+  -  ,[1],[VI],        [Inspection Tests],SequenceCall
+  -  ,[2],[VI],                [Inspect UUT],MessagePopup
+  -  ,[1],[VI],        [Remote Tests],SequenceCall
+  -  ,[2],[VI],                [Get Host Comports],Action
+  -  ,[2],[VI],                [Get Last Known DDU Comport From File],Action
+  -  ,[2],[VI],                [Find DDU UUT],PassFailTest
+  -  ,[2],[VI],                [For],NI_Flow_For
+  -  ,[2],[VI],                [Get JSON String],Action
+  -  ,[2],[VI],                [Test RS422 Port on Slave Connector],PassFailTest
+  -  ,[2],[VI],                [Wait],NI_Wait
+  -  ,[2],[VI],                [Measure Consumption],NI_MultipleNumericLimitTest
+  -  ,[2],[VI],                [Evaluate Loop Passes],PassFailTest
+  -  ,[2],[VI],                [End],NI_Flow_End
+  -  ,[2],[VI],                [Overall Comms Results],PassFailTest
+  -  ,[2],[VI],                [Save as Last Known DDU Comport],Action
+  -  ,[1],[VI],        [End],NI_Flow_End
+  -  ,[1],[VI],        [Do While],NI_Flow_DoWhile
+  -  ,[1],[VI],        [Press Test Fixture Button to Conclude Tests],PassFailTest
+  -  ,[1],[VI],        [End],NI_Flow_End
+  -  ,[1],[VI],        [Switch Off Power],Action
+  -  ,[1],[VI],        [Reset DC Load],Action
+  -  ,[1],[VI],        [Reset TFR],Action
+  -  ,[1],[VI],        [Record Versions],AdditionalResults
